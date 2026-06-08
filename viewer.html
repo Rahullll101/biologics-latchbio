@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Screenshots Viewer</title>
+    <style>
+        body {
+            background-color: #0f172a;
+            color: #f1f5f9;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            padding: 2rem;
+            margin: 0;
+        }
+        h1 {
+            border-bottom: 2px solid #334155;
+            padding-bottom: 1rem;
+            margin-bottom: 2rem;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        .card {
+            background-color: #1e293b;
+            border: 1px solid #334155;
+            border-radius: 0.5rem;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+        }
+        .image-container {
+            height: 200px;
+            background-color: #020617;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+        .info {
+            padding: 1rem;
+        }
+        .info h3 {
+            margin: 0 0 0.5rem 0;
+            font-size: 1.1rem;
+            word-break: break-all;
+        }
+        .info p {
+            margin: 0;
+            font-size: 0.85rem;
+            color: #94a3b8;
+        }
+        /* Modal for full screen */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(2, 6, 17, 0.95);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        .modal.active {
+            display: flex;
+        }
+        .modal-img-container {
+            max-width: 90%;
+            max-height: 80%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .modal img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            border: 1px solid #475569;
+            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5);
+        }
+        .modal-title {
+            margin-top: 1rem;
+            font-size: 1.5rem;
+            color: white;
+            font-weight: 600;
+        }
+        .close-btn {
+            position: absolute;
+            top: 1rem;
+            right: 2rem;
+            font-size: 3rem;
+            color: #94a3b8;
+            cursor: pointer;
+            background: none;
+            border: none;
+        }
+        .close-btn:hover {
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>Platform Screenshots Viewer</h1>
+    <div class="grid" id="grid"></div>
+
+    <div class="modal" id="modal">
+        <button class="close-btn" onclick="closeModal()">&times;</button>
+        <div class="modal-img-container">
+            <img id="modal-img" src="" alt="Full Screen">
+        </div>
+        <div class="modal-title" id="modal-title"></div>
+    </div>
+
+    <script>
+        const screenshots = [
+            "FORMULATION.png",
+            "HITSCREENING.png",
+            "PERFORMULATION-2.png",
+            "PREFORMULATION.png",
+            "admet_prediction.png",
+            "admet_prediction_complete.png",
+            "admet_prediction_input.png",
+            "admet_prediction_progress.png",
+            "bLINDEDSCREEN.png",
+            "dashboard.png",
+            "lead_optimization.png",
+            "lead_optimization_input.png",
+            "lead_optimization_results.png",
+            "molecular_docking.png",
+            "molecular_docking_complete.png",
+            "molecular_docking_input.png",
+            "molecular_docking_results.png",
+            "pocket_discovery.png",
+            "pocket_discovery_input.png",
+            "pocket_discovery_results.png",
+            "pocket_discovery_scanning.png",
+            "report_button.png",
+            "robotic_validation_code.png",
+            "robotic_validation_input.png",
+            "settings_main.png",
+            "target_explorer.png",
+            "target_explorer_egfr.png",
+            "target_explorer_empty.png",
+            "target_explorer_info.png",
+            "validate_wetlab.png",
+            "wet_lab.png",
+            "wetlab_dock.png"
+        ];
+
+        const grid = document.getElementById('grid');
+        const modal = document.getElementById('modal');
+        const modalImg = document.getElementById('modal-img');
+        const modalTitle = document.getElementById('modal-title');
+
+        screenshots.forEach(filename => {
+            const card = document.createElement('div');
+            card.className = 'card';
+            card.onclick = () => openModal(filename);
+
+            const imgContainer = document.createElement('div');
+            imgContainer.className = 'image-container';
+
+            const img = document.createElement('img');
+            img.src = `screenshots/${filename}`;
+            img.alt = filename;
+            img.loading = "lazy";
+
+            imgContainer.appendChild(img);
+
+            const info = document.createElement('div');
+            info.className = 'info';
+
+            const title = document.createElement('h3');
+            title.textContent = filename.replace(/\.[^/.]+$/, "");
+
+            const p = document.createElement('p');
+            p.textContent = `Path: screenshots/${filename}`;
+
+            info.appendChild(title);
+            info.appendChild(p);
+            card.appendChild(imgContainer);
+            card.appendChild(info);
+            grid.appendChild(card);
+        });
+
+        function openModal(filename) {
+            modalImg.src = `screenshots/${filename}`;
+            modalTitle.textContent = filename;
+            modal.classList.add('active');
+        }
+
+        function closeModal() {
+            modal.classList.remove('active');
+        }
+
+        // Close on ESC
+        window.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeModal();
+        });
+    </script>
+</body>
+</html>
