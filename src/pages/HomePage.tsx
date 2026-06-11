@@ -32,6 +32,10 @@ import {
   Briefcase,
   TrendingUp,
   Zap,
+  Lock,
+  Cpu,
+  Workflow,
+  HeartHandshake,
 } from 'lucide-react';
 
 // ─── SECTION 4: Phase data ───────────────────────────────────────────────────
@@ -792,6 +796,114 @@ export default function HomePage() {
             </FadeUp>
           </div>
         </section>
+      </div>
+
+      {/* ══════════════════════════════════════════════════════════════════════
+          SECTION 7.5 — ENTERPRISE EXCELLENCE & CREDENTIALS
+      ══════════════════════════════════════════════════════════════════════ */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
+        <div className="bg-gradient-to-br from-[#0c142b] via-[#0b0f19] to-[#05070c] text-white rounded-[32px] border border-white/5 overflow-hidden shadow-[0_0_50px_rgba(0,0,0,0.3)]">
+          <section className="py-24 px-6 max-w-6xl mx-auto">
+            <FadeUp className="text-center mb-16">
+              <span className="text-xs font-bold text-blue-400 uppercase tracking-widest font-mono block mb-4">
+                Enterprise Standards
+              </span>
+              <h2 className="text-3xl md:text-5xl font-bold text-white mb-4 leading-tight">
+                Emerging AI StartUp for Enterprise Grade Solutions
+              </h2>
+              <p className="text-lg text-slate-400 max-w-2xl mx-auto">
+                We combine bleeding-edge scientific intelligence with the industry's most rigorous operational, compliance, and security standards.
+              </p>
+            </FadeUp>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {[
+                {
+                  title: 'SIEM Enabled',
+                  tagline: 'Security Information & Event Management',
+                  desc: 'Continuous real-time threat intelligence and security monitoring across all biological computation layers.',
+                  icon: ShieldCheck,
+                  color: '#3b82f6',
+                },
+                {
+                  title: 'SOAR Orchestrated',
+                  tagline: 'Security Orchestration & Response',
+                  desc: 'Automated threat response and compliance verification, orchestrating security containment without human delay.',
+                  icon: Workflow,
+                  color: '#8b5cf6',
+                },
+                {
+                  title: 'Quantum Safe Encrypted',
+                  tagline: 'Future-Proof Cryptography',
+                  desc: 'Equipped with next-generation post-quantum cryptographic systems safeguarding patient genomics and proprietary IP.',
+                  icon: Lock,
+                  color: '#10b981',
+                },
+                {
+                  title: 'CMMI - 3 and CMMI 5',
+                  tagline: 'Process & Maturity Excellence',
+                  desc: 'Engineered in compliance with Capability Maturity Model Integration standards, ensuring highly predictable and high-quality deliveries.',
+                  icon: Award,
+                  color: '#f59e0b',
+                },
+                {
+                  title: 'AI First Transformed',
+                  tagline: 'Native Scientific AI',
+                  desc: 'Pioneering the AI-first operation model in life sciences, converting unstructured raw laboratory data into structured intelligence assets.',
+                  icon: Cpu,
+                  color: '#ec4899',
+                },
+                {
+                  title: 'Best Place to Work',
+                  tagline: 'Join Our Diverse Team',
+                  desc: 'A certified workspace built on collaboration, growth, and science. Review our structured candidate evaluation and application process.',
+                  icon: HeartHandshake,
+                  color: '#06b6d4',
+                  cta: {
+                    label: 'Apply Process',
+                    href: 'https://www.genesysquantis.com/templates/login.html'
+                  }
+                },
+              ].map((item, idx) => {
+                const Icon = item.icon;
+                return (
+                  <FadeUp key={idx} delay={idx * 0.08}>
+                    <div
+                      className="group relative rounded-2xl border border-white/5 bg-white/5 p-8 hover:border-white/10 hover:-translate-y-1 transition-all duration-300 flex flex-col h-full justify-between"
+                    >
+                      <div>
+                        <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-5 transition-transform group-hover:scale-110 duration-300" style={{ background: `${item.color}15` }}>
+                          <Icon size={24} style={{ color: item.color }} />
+                        </div>
+                        <span className="text-[10px] font-bold uppercase tracking-wider text-slate-500 block mb-1">
+                          {item.tagline}
+                        </span>
+                        <h3 className="text-lg font-bold text-white mb-3 group-hover:text-blue-400 transition-colors font-sans">
+                          {item.title}
+                        </h3>
+                        <p className="text-sm text-slate-400 leading-relaxed font-sans font-light">
+                          {item.desc}
+                        </p>
+                      </div>
+                      {item.cta && (
+                        <div className="mt-6">
+                          <a
+                            href={item.cta.href}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-1 text-xs font-bold text-blue-400 group-hover:gap-2 transition-all hover:text-blue-300"
+                          >
+                            {item.cta.label} <ArrowRight size={12} />
+                          </a>
+                        </div>
+                      )}
+                    </div>
+                  </FadeUp>
+                );
+              })}
+            </div>
+          </section>
+        </div>
       </div>
 
       {/* ══════════════════════════════════════════════════════════════════════

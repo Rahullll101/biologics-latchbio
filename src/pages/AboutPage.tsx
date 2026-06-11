@@ -1,6 +1,8 @@
+import { useState, useEffect } from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import { Link } from 'react-router-dom';
+import { motion, AnimatePresence } from 'framer-motion';
 import {
   Eye,
   Target,
@@ -14,7 +16,9 @@ import {
   Cpu,
   Handshake,
   ArrowRight,
-  Sparkles
+  Sparkles,
+  Lock,
+  X
 } from 'lucide-react';
 
 interface ObjectiveItem {
@@ -27,6 +31,23 @@ interface ObjectiveItem {
 }
 
 export default function AboutPage() {
+  const [showPopup, setShowPopup] = useState(false);
+
+  useEffect(() => {
+    // Check if user has already seen the popup in this session
+    const hasSeen = sessionStorage.getItem('hasSeenMilestonePopup');
+    if (!hasSeen) {
+      const timer = setTimeout(() => {
+        setShowPopup(true);
+      }, 1500); // 1.5s delay for natural feel
+      return () => clearTimeout(timer);
+    }
+  }, []);
+
+  const handleClose = () => {
+    setShowPopup(false);
+    sessionStorage.setItem('hasSeenMilestonePopup', 'true');
+  };
 
   const objectives: ObjectiveItem[] = [
     {
@@ -231,6 +252,78 @@ export default function AboutPage() {
         </div>
       </section>
 
+      {/* Enterprise Standards & Certifications */}
+      <section className="max-w-7xl mx-auto px-6 py-16 border-t border-white/5 mb-16 text-left relative z-10">
+        <div className="space-y-12">
+          <div className="space-y-3 max-w-3xl">
+            <span className="text-xs font-bold text-blue-400 uppercase tracking-widest font-mono block">
+              ENTERPRISE STANDARDS
+            </span>
+            <h2 className="text-3xl sm:text-4xl font-normal leading-tight text-white">
+              Emerging AI StartUp for Enterprise Grade Solutions
+            </h2>
+            <p className="text-slate-400 text-sm font-light">
+              Adhering to the most demanding regulatory, process quality, and information security frameworks.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {[
+              {
+                title: 'SIEM & SOAR Enabled',
+                desc: 'Continuous security information management and automated threat response workflows.',
+                icon: ShieldCheck,
+              },
+              {
+                title: 'Quantum Safe Encrypted',
+                desc: 'Future-proof data encryption designed to resist quantum-computing decryption risks.',
+                icon: Lock,
+              },
+              {
+                title: 'CMMI - 3 and CMMI 5',
+                desc: 'Evaluated process maturity stages ensuring reliable, repeatable delivery metrics.',
+                icon: Sparkles,
+              },
+              {
+                title: 'AI First Transformed',
+                desc: 'Model-native organization prioritizing neural computation across all functional divisions.',
+                icon: Cpu,
+              },
+              {
+                title: 'Best Place to Work',
+                desc: 'Fostering an inclusive, high-performance ecosystem with a clear, transparent application process.',
+                icon: Handshake,
+              },
+            ].map((item, idx) => {
+              const IconComponent = item.icon;
+              return (
+                <div
+                  key={idx}
+                  className="bg-white/5 border border-white/5 rounded-3xl p-8 shadow-sm flex flex-col justify-between hover:bg-white/[0.07] hover:border-blue-500/30 transition-all duration-300 relative group overflow-hidden"
+                >
+                  <div className="space-y-6">
+                    <div className="flex justify-between items-center">
+                      <div className="w-10 h-10 rounded-lg bg-blue-500/10 flex items-center justify-center border border-blue-500/20 text-blue-400 group-hover:bg-blue-500 group-hover:text-white transition-all duration-300">
+                        <IconComponent className="w-5 h-5" />
+                      </div>
+                    </div>
+
+                    <div className="space-y-3">
+                      <h4 className="text-base font-bold text-white leading-snug group-hover:text-blue-400 transition-colors duration-300">
+                        {item.title}
+                      </h4>
+                      <p className="text-slate-400 text-xs leading-relaxed font-light font-sans">
+                        {item.desc}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
       {/* Long-Term Aspiration & CTA */}
       <section className="max-w-7xl mx-auto px-6 mb-24 relative z-10">
         <div className="bg-gradient-to-br from-[#0c142b] via-[#0b0f19] to-[#05070c] text-white rounded-[32px] border border-white/5 overflow-hidden shadow-[0_0_50px_rgba(0,0,0,0.3)] py-16 px-6 sm:px-12 text-center relative">
@@ -262,6 +355,75 @@ export default function AboutPage() {
       </section>
 
       <Footer />
+
+      {/* 3+ Years Milestone Pop-up Overlay */}
+      <AnimatePresence>
+        {showPopup && (
+          <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
+            {/* Backdrop */}
+            <motion.div 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={handleClose}
+              className="absolute inset-0 bg-slate-950/80 backdrop-blur-sm cursor-pointer"
+            />
+            
+            {/* Modal Box */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95, y: 15 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.95, y: 15 }}
+              transition={{ type: "spring", duration: 0.45 }}
+              className="relative w-full max-w-md bg-gradient-to-br from-[#0c142b] via-[#0b0f19] to-[#05070c] border border-white/10 rounded-3xl p-8 text-center shadow-2xl z-10 overflow-hidden"
+            >
+              {/* Glow Accent */}
+              <div className="absolute -top-12 -left-12 w-32 h-32 rounded-full bg-blue-500/20 blur-2xl pointer-events-none" />
+              <div className="absolute -bottom-12 -right-12 w-32 h-32 rounded-full bg-indigo-500/20 blur-2xl pointer-events-none" />
+
+              {/* Close Button */}
+              <button 
+                onClick={handleClose}
+                className="absolute top-4 right-4 text-slate-400 hover:text-white transition-colors p-1 rounded-full hover:bg-white/5"
+                aria-label="Close dialog"
+              >
+                <X size={18} />
+              </button>
+
+              {/* Graphic Icon */}
+              <div className="w-16 h-16 rounded-2xl bg-gradient-to-tr from-blue-500 to-indigo-500 flex items-center justify-center mx-auto mb-6 shadow-lg shadow-blue-500/20">
+                <Sparkles className="w-8 h-8 text-white animate-pulse" />
+              </div>
+
+              {/* Milestone Tag */}
+              <span className="inline-block px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-xs font-bold text-blue-400 uppercase tracking-wider mb-3">
+                Milestone Celebration
+              </span>
+
+              {/* Title */}
+              <h3 className="text-2xl font-bold text-white mb-3 tracking-tight">
+                Celebrating 3+ Years
+              </h3>
+              <p className="text-slate-500 text-xs font-bold uppercase tracking-wider mb-4">
+                In Industry Excellence
+              </p>
+
+              {/* Body */}
+              <p className="text-slate-300 text-sm leading-relaxed mb-6 font-light font-sans">
+                GenQuantaa is proud to celebrate over three years of transforming R&D operations, scaling spatial omics databases, and implementing enterprise-grade AI models for biopharma organizations globally.
+              </p>
+
+              {/* Action Button */}
+              <button
+                onClick={handleClose}
+                className="w-full py-3.5 rounded-xl bg-gradient-to-r from-blue-500 to-indigo-600 hover:from-blue-600 hover:to-indigo-700 text-white font-bold text-sm transition-all hover:scale-[1.02] shadow-lg shadow-indigo-500/20"
+              >
+                Continue to Site
+              </button>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }
