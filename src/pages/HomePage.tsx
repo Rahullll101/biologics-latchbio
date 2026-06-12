@@ -36,6 +36,17 @@ import {
   Cpu,
   Workflow,
   HeartHandshake,
+  Database,
+  Dna,
+  ClipboardCheck,
+  FileText,
+  GraduationCap,
+  BookOpen,
+  Link2,
+  Sparkles,
+  AlertCircle,
+  Cloud,
+  Layers
 } from 'lucide-react';
 
 // ─── SECTION 4: Phase data ───────────────────────────────────────────────────
@@ -63,7 +74,7 @@ const phases = [
     description:
       'Leverage PBPK modelling, ADMET prediction, and GLP toxicology protocol design to build a comprehensive safety profile — and a compelling IND package for regulators.',
     cta: 'View Preclinical Services',
-    ctaHref: '/drug-development',
+    ctaHref: '/services-2',
     secondaryCta: 'Download Factsheet',
     links: ['ADMET Intelligence', 'PBPK Modelling', 'GLP Toxicology'],
     image: '/sticky_slide.png',
@@ -93,7 +104,7 @@ const phases = [
     description:
       'From Phase III statistical modelling to integrated clinical study reports, our regulatory experts and biosimulation scientists work in lockstep to deliver submission-ready evidence packages.',
     cta: 'Plan Your Phase III',
-    ctaHref: '/drug-development',
+    ctaHref: '/services-2',
     secondaryCta: 'View Submission Services',
     links: ['QSP Modelling', 'E2R Analysis', 'Regulatory Writing'],
     image: '/sticky_slide.png',
@@ -108,7 +119,7 @@ const phases = [
     description:
       'Our global regulatory science team provides strategic consulting, benefit-risk framework development, and submission writing for IND, NDA, MAA, and JNDA across 62 countries.',
     cta: 'Explore Regulatory Science',
-    ctaHref: '/drug-development',
+    ctaHref: '/services-2',
     secondaryCta: 'View Global Reach',
     links: ['IND / NDA Strategy', 'EMA / PMDA Filings', 'Benefit-Risk'],
     image: '/sticky_slide.png',
@@ -155,7 +166,7 @@ const insights = [
     title: 'Advancing PBPK Modelling for Paediatric Oncology Drug Development',
     excerpt: 'Explore how population-based physiological modelling is reshaping paediatric dosing strategies and bridging study design across age cohorts.',
     image: '/screenshots/target_explorer_info.png',
-    href: '/drug-development',
+    href: '/services-2',
     tagColor: '#3b82f6',
   },
   {
@@ -191,7 +202,7 @@ const capabilities = [
     icon: FlaskConical,
     title: 'Regulatory Science',
     desc: 'Global regulatory strategy, submission writing, and benefit-risk consulting for FDA, EMA, and PMDA.',
-    href: '/drug-development',
+    href: '/services-2',
     color: '#8b5cf6',
   },
   {
@@ -411,7 +422,7 @@ export default function HomePage() {
       >
 
         <div className="relative z-10 w-full pt-40 pb-20 px-6 max-w-7xl mx-auto text-left">
-          <div className="max-w-4xl space-y-6">
+          <div className="max-w-5xl space-y-8">
 
             {/* Badge — matches product page slate pill */}
             <motion.span
@@ -420,7 +431,7 @@ export default function HomePage() {
               transition={{ duration: 0.5 }}
               className="inline-block px-3 py-1 rounded bg-slate-100 border border-slate-200 text-xs font-semibold text-slate-600"
             >
-              Global Biosimulation Leader
+              Platform
             </motion.span>
 
             {/* Heading — same style as product page h1 */}
@@ -428,9 +439,9 @@ export default function HomePage() {
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.15, duration: 0.7 }}
-              className="text-4xl sm:text-5xl lg:text-[60px] font-normal tracking-tight leading-[1.12] bg-gradient-to-r from-[#0e172c] to-[#0f269a] bg-clip-text text-transparent max-w-3xl font-sans py-2"
+              className="text-4xl sm:text-5xl lg:text-[60px] font-normal tracking-tight leading-[1.12] bg-gradient-to-r from-[#0e172c] to-[#0f269a] bg-clip-text text-transparent max-w-4xl font-sans py-2"
             >
-              Transforming Drug Development for Good.
+              Accelerating Life Sciences Innovation with AI-Powered Platforms
             </motion.h1>
 
             {/* Subtext */}
@@ -438,11 +449,9 @@ export default function HomePage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3, duration: 0.7 }}
-              className="text-slate-600 text-lg sm:text-xl max-w-2xl leading-relaxed"
+              className="text-slate-600 text-lg sm:text-xl max-w-3xl leading-relaxed"
             >
-              GenQuantaa accelerates medicines using proprietary biosimulation technology,
-              model-informed development services, and regulatory science expertise —
-              trusted by 2,000+ biopharma organisations across 62 countries.
+              GENQUANTAA empowers pharmaceutical, biotech, and healthcare organizations with Generative AI, unified data platforms, quality management systems, and advanced analytics to accelerate discovery, development, and compliance.
             </motion.p>
 
             {/* CTA row */}
@@ -452,41 +461,237 @@ export default function HomePage() {
               transition={{ delay: 0.45, duration: 0.7 }}
               className="flex flex-col sm:flex-row items-start sm:items-center gap-4 pt-4"
             >
-              <Link
-                to="/solutions"
-                className="px-8 py-3.5 rounded-lg font-bold text-white text-sm shadow-md transition-colors"
+              <a
+                href="#contact-section"
+                className="px-8 py-3.5 rounded-lg font-bold text-white text-sm shadow-md transition-colors cursor-pointer text-center"
                 style={{ background: '#0f269a' }}
                 onMouseEnter={e => (e.currentTarget.style.background = '#0a1a72')}
                 onMouseLeave={e => (e.currentTarget.style.background = '#0f269a')}
               >
-                Explore Solutions →
-              </Link>
-              <Link
-                to="/services"
-                className="px-8 py-3.5 rounded-lg font-bold text-sm shadow-md border border-slate-200 text-slate-700 hover:bg-slate-50 hover:border-slate-300 transition-colors"
+                Request a Demo
+              </a>
+              <a
+                href="#our-solutions"
+                className="px-8 py-3.5 rounded-lg font-bold text-sm shadow-md border border-slate-200 text-slate-700 hover:bg-slate-50 hover:border-slate-300 transition-colors cursor-pointer text-center"
               >
-                View Services
-              </Link>
+                Explore Solutions
+              </a>
             </motion.div>
 
-            {/* Trust strip */}
+            {/* Supporting Metrics */}
             <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.65, duration: 0.8 }}
-              className="flex flex-wrap items-center gap-6 pt-6 border-t border-slate-200/60"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.6, duration: 0.7 }}
+              className="grid grid-cols-2 md:grid-cols-4 gap-4 pt-10 border-t border-slate-200/60"
             >
-              {['2,000+ Clients', '62 Countries', '1,550+ Approvals', 'FDA · EMA · PMDA'].map((item, i) => (
-                <div key={i} className="flex items-center gap-1.5 text-xs text-slate-500">
-                  <CheckCircle size={12} className="text-[#0f269a] shrink-0" />
-                  <span>{item}</span>
-                </div>
-              ))}
+              {[
+                { title: 'AI-Driven Discovery', icon: Sparkles, color: 'text-blue-600 bg-blue-50 border-blue-100' },
+                { title: 'Regulatory-Ready Quality Systems', icon: ShieldCheck, color: 'text-emerald-600 bg-emerald-50 border-emerald-100' },
+                { title: 'Unified Enterprise Data', icon: Database, color: 'text-indigo-600 bg-indigo-50 border-indigo-100' },
+                { title: 'Scalable Cloud Architecture', icon: Cloud, color: 'text-cyan-600 bg-cyan-50 border-cyan-100' },
+              ].map((metric, idx) => {
+                const Icon = metric.icon;
+                return (
+                  <div key={idx} className="flex flex-col p-4 rounded-xl border border-slate-100 bg-slate-50/50 hover:bg-white transition-all duration-300 hover:shadow-md group">
+                    <div className={`w-8 h-8 rounded-lg flex items-center justify-center mb-3 transition-transform group-hover:scale-110 ${metric.color.split(' ').slice(1).join(' ')}`}>
+                      <Icon className={`w-4 h-4 ${metric.color.split(' ')[0]}`} />
+                    </div>
+                    <span className="text-sm font-semibold text-slate-800 leading-snug">{metric.title}</span>
+                  </div>
+                );
+              })}
             </motion.div>
 
           </div>
         </div>
       </section>
+
+      {/* Trusted Innovation Section */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
+        <FadeUp>
+          <div className="bg-gradient-to-br from-[#090d16] via-[#0b0f19] to-[#04070d] text-white rounded-[32px] border border-white/5 overflow-hidden shadow-2xl p-10 md:p-16 relative">
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(59,130,246,0.08),transparent_45%)]"></div>
+            <div className="max-w-3xl space-y-6 relative z-10">
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-xs font-semibold text-blue-400 font-mono uppercase tracking-wider">
+                Trusted Innovation
+              </span>
+              <h2 className="text-3xl md:text-5xl font-normal tracking-tight leading-tight bg-gradient-to-r from-white via-slate-100 to-slate-400 bg-clip-text text-transparent">
+                Trusted Innovation for Modern Life Sciences
+              </h2>
+              <p className="text-slate-400 text-lg leading-relaxed">
+                From molecule design to manufacturing excellence, GENQUANTAA provides an integrated digital ecosystem that transforms how life sciences organizations innovate, manage quality, and leverage data.
+              </p>
+            </div>
+          </div>
+        </FadeUp>
+      </div>
+
+      {/* Our Solutions Section */}
+      <div id="our-solutions" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12 scroll-mt-24">
+        <FadeUp>
+          <div className="bg-gradient-to-br from-[#0c142b] via-[#0b0f19] to-[#05070c] text-white rounded-[32px] border border-white/5 overflow-hidden shadow-2xl p-10 md:p-16 relative">
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,rgba(16,185,129,0.06),transparent_40%)]"></div>
+            <div className="space-y-12 relative z-10">
+              <div className="max-w-3xl space-y-4">
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/15 border border-emerald-500/20 text-xs font-semibold text-emerald-400 font-mono uppercase tracking-wider">
+                  Our Solutions
+                </span>
+                <h2 className="text-3xl md:text-4xl font-normal leading-tight">
+                  Our Solutions
+                </h2>
+                <p className="text-slate-400 text-base max-w-xl">
+                  A unified biological data & compute engine engineered to automate, scale, and trace genomic and molecular R&D workflows.
+                </p>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                {[
+                  { title: 'Generative Biologics Platform', desc: 'Leverage AI-driven biologics design and optimization to accelerate therapeutic discovery and development.', icon: Dna, color: 'text-indigo-400 border-indigo-500/25 bg-indigo-500/5 hover:bg-indigo-500/10' },
+                  { title: 'Generative Chemistry Tool', desc: 'Generate, evaluate, and optimize molecular candidates using advanced AI-powered chemistry workflows.', icon: FlaskConical, color: 'text-rose-400 border-rose-500/25 bg-rose-500/5 hover:bg-rose-500/10' },
+                  { title: 'Quality Management System (QMS)', desc: 'Digitize quality processes, CAPA, deviations, audits, change control, and compliance management.', icon: ClipboardCheck, color: 'text-emerald-400 border-emerald-500/25 bg-emerald-500/5 hover:bg-emerald-500/10' },
+                  { title: 'Document Management System (DMS)', desc: 'Centralized document lifecycle management with version control, approvals, audit trails, and regulatory readiness.', icon: FileText, color: 'text-sky-400 border-sky-500/25 bg-sky-500/5 hover:bg-sky-500/10' },
+                  { title: 'Learning Management System (LMS)', desc: 'Empower workforce development through training automation, competency tracking, and compliance learning programs.', icon: GraduationCap, color: 'text-amber-400 border-amber-500/25 bg-amber-500/5 hover:bg-amber-500/10' },
+                  { title: 'Training Management System (TMS)', desc: 'Manage instructor-led, virtual, and compliance training across global teams.', icon: BookOpen, color: 'text-purple-400 border-purple-500/25 bg-purple-500/5 hover:bg-purple-500/10' },
+                  { title: 'Data Analytics Platform', desc: 'Transform complex life sciences data into actionable insights through AI-powered analytics and visualization.', icon: BarChart3, color: 'text-teal-400 border-teal-500/25 bg-teal-500/5 hover:bg-teal-500/10' },
+                  { title: 'Unified Data Platform', desc: 'Connect research, quality, manufacturing, and enterprise data into a single trusted source of truth.', icon: Link2, color: 'text-blue-400 border-blue-500/25 bg-blue-500/5 hover:bg-blue-500/10' },
+                ].map((solution, idx) => {
+                  const Icon = solution.icon;
+                  return (
+                    <div key={idx} className={`flex flex-col p-6 rounded-2xl border ${solution.color.split(' ').slice(1).join(' ')} transition-all duration-300 group hover:-translate-y-1`}>
+                      <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center mb-4 transition-transform group-hover:scale-110">
+                        <Icon className={`w-5 h-5 ${solution.color.split(' ')[0]}`} />
+                      </div>
+                      <h3 className="font-bold text-white text-base leading-snug mb-2 group-hover:text-white transition-colors">{solution.title}</h3>
+                      <p className="text-xs text-slate-400 leading-relaxed font-sans">{solution.desc}</p>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          </div>
+        </FadeUp>
+      </div>
+
+      {/* Industry Challenges We Solve Section */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
+        <FadeUp>
+          <div className="bg-gradient-to-br from-[#051c12] via-[#090d16] to-[#04070d] text-white rounded-[32px] border border-white/5 overflow-hidden shadow-2xl p-10 md:p-16 relative">
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(16,185,129,0.06),transparent_40%)]"></div>
+            <div className="space-y-12 relative z-10">
+              <div className="max-w-3xl space-y-4">
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/15 border border-emerald-500/20 text-xs font-semibold text-emerald-400 font-mono uppercase tracking-wider">
+                  Challenges & Solutions
+                </span>
+                <h2 className="text-3xl md:text-4xl font-normal leading-tight">
+                  Industry Challenges We Solve
+                </h2>
+                <p className="text-slate-400 text-base max-w-xl">
+                  We bridge the gap between traditional siloed systems and modern, compliant life sciences workflows.
+                </p>
+              </div>
+
+              <div className="space-y-4">
+                {[
+                  { challenge: 'Fragmented scientific data', solution: 'Unified data architecture' },
+                  { challenge: 'Slow discovery processes', solution: 'AI-powered discovery acceleration' },
+                  { challenge: 'Complex regulatory requirements', solution: 'Regulatory-compliant digital workflows' },
+                  { challenge: 'Siloed quality systems', solution: 'End-to-end quality management' },
+                  { challenge: 'Limited enterprise visibility', solution: 'Advanced analytics and reporting' }
+                ].map((pair, idx) => (
+                  <div key={idx} className="grid grid-cols-1 lg:grid-cols-[45%_10%_45%] gap-4 items-center p-5 rounded-2xl border border-white/5 bg-white/[0.02] hover:bg-white/[0.04] transition-all duration-300">
+                    {/* Challenge Column */}
+                    <div className="flex items-center gap-3.5 pl-2">
+                      <div className="w-8 h-8 rounded-lg bg-rose-500/10 border border-rose-500/20 flex items-center justify-center shrink-0">
+                        <AlertCircle className="w-4.5 h-4.5 text-rose-400" />
+                      </div>
+                      <div>
+                        <span className="text-[10px] font-bold text-rose-400 uppercase tracking-widest block font-mono">The Challenge</span>
+                        <span className="text-slate-200 text-sm font-medium">{pair.challenge}</span>
+                      </div>
+                    </div>
+
+                    {/* Transition Icon */}
+                    <div className="hidden lg:flex justify-center text-slate-500">
+                      <ArrowRight className="w-5 h-5 animate-pulse" />
+                    </div>
+
+                    {/* Solution Column */}
+                    <div className="flex items-center gap-3.5 pl-2 border-t border-white/5 pt-3 lg:border-t-0 lg:pt-0">
+                      <div className="w-8 h-8 rounded-lg bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center shrink-0">
+                        <CheckCircle size={16} className="text-emerald-400" />
+                      </div>
+                      <div>
+                        <span className="text-[10px] font-bold text-emerald-400 uppercase tracking-widest block font-mono">The GENQUANTAA Solution</span>
+                        <span className="text-emerald-300 text-sm font-semibold">{pair.solution}</span>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </FadeUp>
+      </div>
+
+      {/* Why GENQUANTAA Section */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
+        <FadeUp>
+          <div className="bg-gradient-to-br from-[#0c142b] via-[#0b0f19] to-[#05070c] text-white rounded-[32px] border border-white/5 overflow-hidden shadow-2xl p-10 md:p-16 relative">
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_right,rgba(59,130,246,0.06),transparent_40%)]"></div>
+            <div className="space-y-12 relative z-10">
+              <div className="max-w-3xl space-y-4 text-center mx-auto">
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-500/15 border border-blue-500/20 text-xs font-semibold text-blue-400 font-mono uppercase tracking-wider">
+                  Why Us
+                </span>
+                <h2 className="text-3xl md:text-4xl font-normal leading-tight">
+                  Why GENQUANTAA
+                </h2>
+                <p className="text-slate-400 text-base max-w-xl mx-auto">
+                  Purpose-built intelligence designed for compliance, speed, and absolute accuracy in modern bio-pharma workflows.
+                </p>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                {[
+                  { title: 'AI-Native Innovation', desc: 'Built with advanced Generative AI capabilities specifically for life sciences.', icon: Brain, color: 'from-blue-500/10 to-indigo-500/5 border-blue-500/20' },
+                  { title: 'End-to-End Digital Ecosystem', desc: 'From discovery and development to quality and compliance.', icon: Layers, color: 'from-emerald-500/10 to-teal-500/5 border-emerald-500/20' },
+                  { title: 'Regulatory Focus', desc: 'Designed to support GxP, FDA, EMA, and global compliance requirements.', icon: ShieldCheck, color: 'from-purple-500/10 to-violet-500/5 border-purple-500/20' },
+                ].map((card, idx) => {
+                  const Icon = card.icon;
+                  return (
+                    <div key={idx} className={`flex flex-col p-8 rounded-3xl border bg-gradient-to-br ${card.color} hover:scale-[1.02] transition-transform duration-300`}>
+                      <div className="w-12 h-12 rounded-2xl bg-white/5 flex items-center justify-center mb-6">
+                        <Icon size={24} className="text-white" />
+                      </div>
+                      <h3 className="text-lg font-bold text-white mb-3">{card.title}</h3>
+                      <p className="text-sm text-slate-400 leading-relaxed font-sans">{card.desc}</p>
+                    </div>
+                  );
+                })}
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+                {[
+                  { title: 'Enterprise Scalability', desc: 'Cloud-native architecture supporting organizations of all sizes.', icon: Cloud, color: 'from-cyan-500/10 to-sky-500/5 border-cyan-500/20' },
+                  { title: 'Data-Centric Intelligence', desc: 'Transform disconnected data into strategic business intelligence.', icon: Database, color: 'from-amber-500/10 to-orange-500/5 border-amber-500/20' },
+                ].map((card, idx) => {
+                  const Icon = card.icon;
+                  return (
+                    <div key={idx} className={`flex flex-col p-8 rounded-3xl border bg-gradient-to-br ${card.color} hover:scale-[1.02] transition-transform duration-300`}>
+                      <div className="w-12 h-12 rounded-2xl bg-white/5 flex items-center justify-center mb-6">
+                        <Icon size={24} className="text-white" />
+                      </div>
+                      <h3 className="text-lg font-bold text-white mb-3">{card.title}</h3>
+                      <p className="text-sm text-slate-400 leading-relaxed font-sans">{card.desc}</p>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          </div>
+        </FadeUp>
+      </div>
 
 
       {/* ══════════════════════════════════════════════════════════════════════
@@ -501,7 +706,7 @@ export default function HomePage() {
                   <span className="text-xs font-bold text-blue-400 uppercase tracking-widest font-mono block mb-3">Latest Insights</span>
                   <h2 className="text-3xl md:text-4xl font-bold text-white">Stay Ahead of the Science</h2>
                 </div>
-                <Link to="/drug-development" className="group inline-flex items-center gap-2 text-sm font-bold text-slate-400 hover:text-white transition-colors">
+                <Link to="/services-2" className="group inline-flex items-center gap-2 text-sm font-bold text-slate-400 hover:text-white transition-colors">
                   View All Resources <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
                 </Link>
               </div>
@@ -724,7 +929,7 @@ export default function HomePage() {
                           </div>
                           <div>
                             <div className="text-white font-semibold text-sm">{cs.company}</div>
-                            <Link to="/drug-development" className="text-xs text-slate-400 hover:text-white transition-colors">Read full case study →</Link>
+                            <Link to="/services-2" className="text-xs text-slate-400 hover:text-white transition-colors">Read full case study →</Link>
                           </div>
                         </div>
                       </div>
@@ -948,7 +1153,7 @@ export default function HomePage() {
       {/* ══════════════════════════════════════════════════════════════════════
           SECTION 9 — CONTACT
       ══════════════════════════════════════════════════════════════════════ */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
+      <div id="contact-section" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12 scroll-mt-24">
         <div className="bg-gradient-to-br from-[#0f172a] via-[#090d16] to-[#04070d] text-white rounded-[32px] border border-white/5 overflow-hidden shadow-[0_0_50px_rgba(0,0,0,0.3)]">
           <section className="py-24 px-6 max-w-6xl mx-auto">
             <FadeUp>
@@ -1015,7 +1220,7 @@ export default function HomePage() {
                       </div>
 
                       {[
-                        { field: 'email', label: 'Work Email', type: 'email', placeholder: 'info@Genquantaa.com' },
+                        { field: 'email', label: 'Work Email', type: 'email', placeholder: 'support@Genquantaa.com' },
                         { field: 'company', label: 'Company', type: 'text', placeholder: 'Acme Therapeutics' },
                         { field: 'role', label: 'Your Role', type: 'text', placeholder: 'VP Clinical Pharmacology' },
                       ].map(({ field, label, type, placeholder }) => (

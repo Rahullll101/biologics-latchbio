@@ -20,22 +20,26 @@ import {
   Target,
   Microscope,
   Zap,
-  Award
+  Award,
+  BookOpen,
+  FileText,
 } from 'lucide-react';
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [hoveredLink, setHoveredLink] = useState<string | null>(null);
   const hoverTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const [activeSolutionTab, setActiveSolutionTab] = useState<'clinical' | 'quality' | 'data'>('clinical');
 
   const location = useLocation();
-  const isSolutionsPath = location.pathname === '/solutions';
+  const isSolutionsPath = location.pathname === '/solutions' || location.hash === '#our-solutions';
   const isChemistryPath = location.pathname === '/chemistry';
   const isGptPath = location.pathname === '/gpt';
   const isDigitalTwinPath = location.pathname === '/digital-twin';
-  const isDrugDevelopmentPath = location.pathname === '/drug-development';
+
   const isServicesPath = location.pathname === '/services';
-  const isPlatformPath = location.pathname === '/platform';
+  const isPlatformPath = location.pathname === '/discovery';
+  const isCompanyPath = location.pathname === '/company';
 
   const handleMouseEnter = (linkName: string) => {
     if (hoverTimeoutRef.current) {
@@ -53,10 +57,10 @@ export default function Navbar() {
 
   const menuConfigs: Record<string, any> = {
     product: {
-      category: 'Product',
+      category: 'Discovery',
       title: 'Genquantaa Platform',
       desc: 'A unified biological data & compute engine engineered to automate, scale, and trace genomic and molecular R&D workflows.',
-      href: '/platform',
+      href: '/discovery',
       discoverLabel: 'Explore Platform',
       items: [
         {
@@ -84,7 +88,7 @@ export default function Navbar() {
         title: 'Genquantaa Compute Dashboard',
         desc: 'Run, trace, and manage complex pipeline runs in a single cloud dashboard.',
         image: '/screenshots/dashboard.png',
-        href: '/platform',
+        href: '/discovery',
         linkLabel: 'Open Dashboard'
       }
     },
@@ -92,36 +96,122 @@ export default function Navbar() {
       category: 'Solutions',
       title: 'Enterprise Portals',
       desc: 'Scalable bioinformatics platforms and secure data infrastructure designed for biopharma partners, diagnostic labs, and academic researchers.',
-      href: '/solutions',
+      href: '/home#our-solutions',
       discoverLabel: 'View Solutions',
       items: [
         {
-          title: 'For Solution Providers',
-          desc: 'Deploy customized, fully-branded analysis portals integrated with hardware.',
-          icon: Compass
+          title: 'Discovery Solution',
+          desc: 'Explore our integrated genomic and biological discovery platform workflows.',
+          icon: Compass,
+          href: '/discovery-solution'
         },
         {
-          title: 'For R&D Teams',
-          desc: 'Enable collaboration between dry-labs and wet-lab experimental teams.',
-          icon: Layers
+          title: 'GQ Chemistry Solution',
+          desc: 'Explore computational chemistry, retrosynthesis and lead optimization.',
+          icon: FlaskConical,
+          href: '/chemistry-solution'
         },
         {
-          title: 'Enterprise Governance',
-          desc: 'Robust HIPAA and GDPR compliance with fine-grained access control.',
-          icon: ShieldCheck
-        },
-        {
-          title: 'Instrument & Kit Analysis',
-          desc: 'A single pane of glass for real-time instrument and kit validation assays.',
-          icon: BarChart
+          title: 'GQ GPT Solutions',
+          desc: 'Explore synthetic omics generators, aging clocks and target explorers.',
+          icon: Brain,
+          href: '/gpt-solutions'
         }
       ],
       featured: {
         title: 'Valued Partnerships',
         desc: 'Collaborate with leading life science teams, including Microsoft, Cura Quantis, and GenQuantaa Robotics.',
         image: '/scientist_portrait.png',
-        href: '/solutions',
+        href: '/home#our-solutions',
         linkLabel: 'See Client Success'
+      }
+    },
+    software: {
+      category: 'Our software',
+      title: 'Our software',
+      desc: "GenQuantaa's software suite delivers next-generation, high-performance computational intelligence across all R&D and drug development stages. By unifying AI-driven molecular dynamics, automated validation, and advanced analytics, our tools unify research pipelines, accelerate regulatory breakthroughs, and scale scientific insights.",
+      href: '/discovery',
+      discoverLabel: 'View all',
+      items: [
+        {
+          title: 'GENQUANTAA Kinetica™',
+          desc: 'PK/PD and toxicokinetic modeling',
+          icon: Activity,
+          href: '/discovery'
+        },
+        {
+          title: 'GENQUANTAA Simulate™',
+          desc: 'PBPK modeling and simulation',
+          icon: Cpu,
+          href: '/discovery'
+        },
+        {
+          title: 'GENQUANTAA Validate™',
+          desc: 'CDISC data validation',
+          icon: ShieldCheck,
+          href: '/discovery'
+        },
+        {
+          title: 'GENQUANTAA Discover™',
+          desc: 'Scientific informatics platform',
+          icon: Compass,
+          href: '/discovery'
+        },
+        {
+          title: 'GENQUANTAA Insight™',
+          desc: 'Biological and pharmacological intelligence',
+          icon: Brain,
+          href: '/discovery'
+        },
+        {
+          title: 'GENQUANTAA Intelligence™',
+          desc: 'AI platform for life sciences',
+          icon: Sparkles,
+          href: '/discovery'
+        },
+        {
+          title: 'GENQUANTAA Submit™',
+          desc: 'eCTD submission management',
+          icon: Database,
+          href: '/discovery'
+        },
+        {
+          title: 'GENQUANTAA Author™',
+          desc: 'Regulatory writing GenAI',
+          icon: Cpu,
+          href: '/discovery'
+        },
+        {
+          title: 'GENQUANTAA Value™',
+          desc: 'Value communication and HEOR storytelling',
+          icon: BarChart,
+          href: '/discovery'
+        },
+        {
+          title: 'GENQUANTAA ChemVista™',
+          desc: 'Chemical intelligence',
+          icon: FlaskConical,
+          href: '/discovery'
+        },
+        {
+          title: 'GENQUANTAA Explorer™',
+          desc: 'Nonclinical data exploration',
+          icon: Layers,
+          href: '/discovery'
+        }
+      ],
+      bySolution: {
+        title: 'Software by solution',
+        linkLabel: 'View software',
+        href: '/discovery',
+        items: [
+          { title: 'Regulatory', href: '/services' },
+          { title: 'Discovery', href: '/discovery' },
+          { title: 'Preclinical', href: '/discovery' },
+          { title: 'Early Clinical', href: '/discovery' },
+          { title: 'Late Clinical', href: '/discovery' },
+          { title: 'Market Access & Commercial', href: '/discovery' }
+        ]
       }
     },
     chemistry: {
@@ -232,11 +322,11 @@ export default function Navbar() {
         linkLabel: 'Simulate Therapy Response'
       }
     },
-    'drug-development': {
-      category: 'Drug Development Service',
+    'services-2': {
+      category: 'Services 2',
       title: 'Model-Informed Development',
       desc: 'Model-informed drug development, GLP toxicology protocols, DMPK calculations, and global regulatory filing strategy.',
-      href: '/drug-development',
+      href: '/services-2',
       discoverLabel: 'Review Services',
       items: [
         {
@@ -264,7 +354,7 @@ export default function Navbar() {
         title: 'GLP Safety & Toxicology',
         desc: 'Ensure safety parameters meet FDA, EMA, and PMDA requirements with experts.',
         image: '/screenshots/validate_wetlab.png',
-        href: '/drug-development',
+        href: '/services-2',
         linkLabel: 'Submit Service Inquiry'
       }
     },
@@ -276,24 +366,28 @@ export default function Navbar() {
       discoverLabel: 'Explore Services',
       items: [
         {
-          title: 'Compute & AI Services',
-          desc: 'Genomics workflow automation, generative chemistry design, and oncology twins.',
-          icon: Cpu
+          title: 'Services 1',
+          desc: 'Next-generation computational engines, AI design, and custom workflow pipelines.',
+          icon: Cpu,
+          href: '/services-1'
         },
         {
-          title: 'Drug Development Consulting',
-          desc: 'Strategic early translation, safety toxicology, clinical pharmacology, and CMC formulation.',
-          icon: Compass
+          title: 'Services 2',
+          desc: 'Strategic translation, safety toxicology, CMC formulation, and clinical pharmacology.',
+          icon: Compass,
+          href: '/services-2'
         },
         {
           title: 'Regulatory Affairs Strategy',
           desc: 'Global agency meeting support and eCTD submission packages compilation.',
-          icon: ShieldCheck
+          icon: ShieldCheck,
+          href: '/services-2'
         },
         {
           title: 'Due Diligence & Evaluation',
           desc: 'Independent asset risk profiling, scorecards, and start-up valuations.',
-          icon: Award
+          icon: Award,
+          href: '/services-2'
         }
       ],
       featured: {
@@ -303,29 +397,51 @@ export default function Navbar() {
         href: '/services',
         linkLabel: 'Contact Scoping Team'
       }
+    },
+    company: {
+      category: 'Company',
+      title: 'About GenQuantaa',
+      desc: 'Learn about our scientific mission, compliance standards, privacy protections, and user agreements.',
+      href: '/company',
+      discoverLabel: 'Explore Company',
+      items: [
+        {
+          title: 'Company Overview',
+          desc: 'Learn about our scientific mission, core values, leadership team, and advisors.',
+          icon: Award,
+          href: '/company'
+        },
+        {
+          title: 'Privacy Policy',
+          desc: 'Review our data protection standards, compliance metrics, and user privacy rights.',
+          icon: ShieldCheck,
+          href: '/privacy'
+        },
+        {
+          title: 'Terms of Use',
+          desc: 'Read the general terms, conditions of service, and user licensing parameters.',
+          icon: FileText,
+          href: '/terms'
+        },
+        {
+          title: 'Cookie Policy',
+          desc: 'Learn how we manage session storage, cookies, and local preferences.',
+          icon: Database,
+          href: '/cookies'
+        }
+      ],
+      featured: {
+        title: 'Valued Partnerships',
+        desc: 'Collaborate with leading life science teams, including Microsoft, Cura Quantis, and GenQuantaa Robotics.',
+        image: '/scientist_portrait.png',
+        href: '/company',
+        linkLabel: 'Read Success Stories'
+      }
     }
   };
 
   return (
     <div className="fixed top-0 left-0 right-0 w-full z-50 shadow-sm border-b border-slate-100 bg-white">
-      {/* Top Gradient Announcement Bar */}
-      <div className="bg-gradient-to-r from-[#000428] via-[#004e92] to-[#000428] text-white text-[11px] font-medium py-2.5 px-4 text-center border-b border-white/10 relative z-50 flex items-center justify-center gap-6 overflow-hidden">
-        <div className="flex items-center gap-1.5 shrink-0">
-          <span className="font-bold uppercase tracking-wider bg-white/15 px-1.5 py-0.5 rounded text-[9px]">Takara Bio</span>
-          <span>New webinar on spatial analysis of Seeker™ and Trekker™ Datasets</span>
-        </div>
-        <span className="text-white/30 hidden md:inline">|</span>
-        <div className="items-center gap-1.5 shrink-0 hidden md:flex">
-          <span className="font-bold uppercase tracking-wider bg-white/15 px-1.5 py-0.5 rounded text-[9px]">NGS Instrument Landscape</span>
-          <span>A comprehensive database of the NGS Machines and products available today</span>
-        </div>
-        <span className="text-white/30 hidden lg:inline">|</span>
-        <div className="items-center gap-1.5 shrink-0 hidden lg:flex">
-          <span className="font-bold uppercase tracking-wider bg-white/15 px-1.5 py-0.5 rounded text-[9px]">GenQuantaa x Takara Bio</span>
-          <span>New webinar on spatial analysis</span>
-        </div>
-      </div>
-
       {/* Navigation Bar */}
       <header className="w-full bg-white py-4 px-4 sm:px-8 flex items-center justify-between relative">
         <div className="flex items-center gap-8">
@@ -338,77 +454,71 @@ export default function Navbar() {
             {/* Product Link */}
             <div className="py-2" onMouseEnter={() => handleMouseEnter('product')} onMouseLeave={handleMouseLeave}>
               <Link
-                to="/platform"
-                className={`text-sm font-semibold transition-colors relative py-1 ${isPlatformPath ? 'text-[#0f269a] font-bold border-b-2 border-[#0f269a] pb-1' : 'text-slate-600 hover:text-[#0f269a]'
-                  }`}
+                to="/discovery"
+                className={`text-sm font-semibold transition-colors relative py-1 ${
+                  isPlatformPath || hoveredLink === 'product'
+                    ? 'text-[#0f269a] font-bold border-b-2 border-[#0f269a] pb-1'
+                    : 'text-slate-600 hover:text-[#0f269a]'
+                }`}
               >
-                Product
+                Discovery
               </Link>
             </div>
 
             {/* Solutions Link */}
             <div className="py-2" onMouseEnter={() => handleMouseEnter('solutions')} onMouseLeave={handleMouseLeave}>
               <Link
-                to="/solutions"
-                className={`text-sm font-semibold transition-colors relative py-1 ${isSolutionsPath ? 'text-[#0f269a] font-bold border-b-2 border-[#0f269a] pb-1' : 'text-slate-600 hover:text-[#0f269a]'
-                  }`}
+                to="/home#our-solutions"
+                className={`text-sm font-semibold transition-colors relative py-1 ${
+                  (isSolutionsPath || location.pathname === '/discovery-solution' || location.pathname === '/chemistry-solution' || location.pathname === '/gpt-solutions' || hoveredLink === 'solutions')
+                    ? 'text-[#0f269a] font-bold border-b-2 border-[#0f269a] pb-1'
+                    : 'text-slate-600 hover:text-[#0f269a]'
+                }`}
               >
                 Solutions
               </Link>
             </div>
 
-            {/* Chemistry Link */}
-            <div className="py-2" onMouseEnter={() => handleMouseEnter('chemistry')} onMouseLeave={handleMouseLeave}>
-              <Link
-                to="/chemistry"
-                className={`text-sm font-semibold transition-colors relative py-1 ${isChemistryPath ? 'text-[#0f269a] font-bold border-b-2 border-[#0f269a] pb-1' : 'text-slate-600 hover:text-[#0f269a]'
-                  }`}
+            {/* Software Link (Not Clickable, Hoverable) */}
+            <div className="py-2" onMouseEnter={() => handleMouseEnter('software')} onMouseLeave={handleMouseLeave}>
+              <span
+                className={`text-sm font-semibold transition-colors relative py-1 cursor-default ${
+                  (isChemistryPath || isGptPath || isDigitalTwinPath || hoveredLink === 'software')
+                    ? 'text-[#0f269a] font-bold border-b-2 border-[#0f269a] pb-1'
+                    : 'text-slate-600 hover:text-[#0f269a]'
+                }`}
               >
-                GQ Chemistry
-              </Link>
-            </div>
-
-            {/* GPT Link */}
-            <div className="py-2" onMouseEnter={() => handleMouseEnter('gpt')} onMouseLeave={handleMouseLeave}>
-              <Link
-                to="/gpt"
-                className={`text-sm font-semibold transition-colors relative py-1 ${isGptPath ? 'text-[#0f269a] font-bold border-b-2 border-[#0f269a] pb-1' : 'text-slate-600 hover:text-[#0f269a]'
-                  }`}
-              >
-                GQ GPT
-              </Link>
-            </div>
-
-            {/* Digital Twin Link */}
-            <div className="py-2" onMouseEnter={() => handleMouseEnter('digital-twin')} onMouseLeave={handleMouseLeave}>
-              <Link
-                to="/digital-twin"
-                className={`text-sm font-semibold transition-colors relative py-1 ${isDigitalTwinPath ? 'text-[#0f269a] font-bold border-b-2 border-[#0f269a] pb-1' : 'text-slate-600 hover:text-[#0f269a]'
-                  }`}
-              >
-                Digital Twin
-              </Link>
+                Software
+              </span>
             </div>
 
             {/* Services Link */}
             <div className="py-2" onMouseEnter={() => handleMouseEnter('services')} onMouseLeave={handleMouseLeave}>
               <Link
                 to="/services"
-                className={`text-sm font-semibold transition-colors relative py-1 ${isServicesPath ? 'text-[#0f269a] font-bold border-b-2 border-[#0f269a] pb-1' : 'text-slate-600 hover:text-[#0f269a]'
-                  }`}
+                className={`text-sm font-semibold transition-colors relative py-1 ${
+                  isServicesPath || hoveredLink === 'services'
+                    ? 'text-[#0f269a] font-bold border-b-2 border-[#0f269a] pb-1'
+                    : 'text-slate-600 hover:text-[#0f269a]'
+                }`}
               >
                 Services
               </Link>
             </div>
 
-            {/* Drug Development Link */}
-            <div className="py-2" onMouseEnter={() => handleMouseEnter('drug-development')} onMouseLeave={handleMouseLeave}>
+
+
+            {/* Company Link */}
+            <div className="py-2" onMouseEnter={() => handleMouseEnter('company')} onMouseLeave={handleMouseLeave}>
               <Link
-                to="/drug-development"
-                className={`text-sm font-semibold transition-colors relative py-1 ${isDrugDevelopmentPath ? 'text-[#0f269a] font-bold border-b-2 border-[#0f269a] pb-1' : 'text-slate-600 hover:text-[#0f269a]'
-                  }`}
+                to="/company"
+                className={`text-sm font-semibold transition-colors relative py-1 ${
+                  isCompanyPath || hoveredLink === 'company'
+                    ? 'text-[#0f269a] font-bold border-b-2 border-[#0f269a] pb-1'
+                    : 'text-slate-600 hover:text-[#0f269a]'
+                }`}
               >
-                Drug Development Service
+                Company
               </Link>
             </div>
           </nav>
@@ -442,16 +552,227 @@ export default function Navbar() {
 
         {/* Render Mega Menu */}
         {hoveredLink && menuConfigs[hoveredLink] && (() => {
+          if (hoveredLink === 'solutions') {
+            return (
+              <div
+                className="absolute top-full left-1/2 -translate-x-1/2 w-[92vw] max-w-6xl bg-[#0b1424] text-white border border-slate-800/80 shadow-[0_25px_60px_rgba(0,0,0,0.5)] z-50 animate-fadeIn hidden lg:block rounded-2xl overflow-hidden mt-2"
+                onMouseEnter={() => handleMouseEnter('solutions')}
+                onMouseLeave={handleMouseLeave}
+              >
+                <div className="w-full grid grid-cols-12 text-left">
+                  {/* Left Sidebar (Tabs) */}
+                  <div className="col-span-3 bg-[#070d18]/60 border-r border-slate-800/80 flex flex-col py-4">
+                    {[
+                      { id: 'clinical', label: 'Clinical' },
+                      { id: 'quality', label: 'Quality' },
+                      { id: 'data', label: 'Data' }
+                    ].map((tab) => (
+                      <div
+                        key={tab.id}
+                        onMouseEnter={() => setActiveSolutionTab(tab.id as any)}
+                        className={`px-6 py-3 cursor-pointer font-sans font-bold text-sm tracking-wide transition-all border-l-4 ${
+                          activeSolutionTab === tab.id
+                            ? 'bg-[#0f269a] text-white border-[#0f269a]'
+                            : 'text-slate-400 hover:text-white hover:bg-[#0f269a]/20 border-transparent'
+                        }`}
+                      >
+                        {tab.label}
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* Right Content Area */}
+                  <div className="col-span-9 p-6 flex flex-col justify-between">
+                    <div>
+                      {/* Cloud Header & Title */}
+                      <span className="text-[10px] font-extrabold text-[#00A878] uppercase tracking-wider font-mono">
+                        {
+                          {
+                            clinical: 'GENQUANTAA DEVELOPMENT CLOUD',
+                            quality: 'GENQUANTAA QUALITY CLOUD',
+                            data: 'GENQUANTAA DATA CLOUD'
+                          }[activeSolutionTab]
+                        }
+                      </span>
+                      <h3 className="text-xl font-bold text-white mt-2 mb-4 font-sans">
+                        {
+                          {
+                            clinical: 'GenQuantaa Clinical Platform',
+                            quality: 'GenQuantaa Quality Platform',
+                            data: 'GenQuantaa Data Platform'
+                          }[activeSolutionTab]
+                        }
+                      </h3>
+
+                      {/* Columns Content */}
+                      {activeSolutionTab === 'clinical' && (
+                        <div className="grid grid-cols-2 gap-x-12">
+                          <div>
+                            <h4 className="text-xs font-bold text-white uppercase tracking-wider mb-4 border-b border-slate-800 pb-2">
+                              Life Sciences
+                            </h4>
+                            <div className="space-y-4">
+                              {[
+                                { title: 'GQ Chemistry', desc: 'AI-driven synthesis pathway planning and ligand binding prediction', href: '/chemistry', icon: FlaskConical },
+                                { title: 'GQ GPT', desc: 'Senescence aging clocks, synthetic omics generators, and simulated screenings', href: '/gpt', icon: Brain },
+                                { title: 'Digital Twin', desc: 'Precision oncology segmentation, longitudinal RECIST tracking, and risk models', href: '/digital-twin', icon: Layers },
+                                { title: 'Discovery', desc: 'Unified data ingestion & scientific compute engine for automated genomics', href: '/discovery', icon: Compass }
+                              ].map((item, idx) => {
+                                const Icon = item.icon;
+                                return (
+                                  <Link
+                                    key={idx}
+                                    to={item.href}
+                                    onClick={handleMouseLeave}
+                                    className="group flex gap-3 hover:bg-slate-800/20 p-2.5 -m-2.5 rounded-xl transition-all"
+                                  >
+                                    <div className="shrink-0 w-8 h-8 rounded-lg bg-slate-800/50 flex items-center justify-center text-slate-400 group-hover:bg-[#0f269a]/20 group-hover:text-blue-400 transition-colors">
+                                      <Icon size={16} />
+                                    </div>
+                                    <div>
+                                      <h5 className="text-xs font-bold text-slate-200 group-hover:text-white transition-colors">
+                                        {item.title}
+                                      </h5>
+                                      <p className="text-[10px] text-slate-500 group-hover:text-slate-400 leading-normal mt-1 transition-colors">
+                                        {item.desc}
+                                      </p>
+                                    </div>
+                                  </Link>
+                                );
+                              })}
+                            </div>
+                          </div>
+                        </div>
+                      )}
+
+                      {activeSolutionTab === 'quality' && (
+                        <div className="grid grid-cols-2 gap-x-12">
+                          {/* Left Column: Quality */}
+                          <div>
+                            <h4 className="text-xs font-bold text-white uppercase tracking-wider mb-4 border-b border-slate-800 pb-2">
+                              Quality
+                            </h4>
+                            <div className="space-y-4">
+                              {[
+                                { title: 'QMS', desc: 'Quality Management System for CAPA, audit trails, and compliance', href: '/discovery-solution', icon: ShieldCheck }
+                              ].map((item, idx) => {
+                                const Icon = item.icon;
+                                return (
+                                  <Link
+                                    key={idx}
+                                    to={item.href}
+                                    onClick={handleMouseLeave}
+                                    className="group flex gap-3 hover:bg-slate-800/20 p-2.5 -m-2.5 rounded-xl transition-all"
+                                  >
+                                    <div className="shrink-0 w-8 h-8 rounded-lg bg-slate-800/50 flex items-center justify-center text-slate-400 group-hover:bg-[#0f269a]/20 group-hover:text-blue-400 transition-colors">
+                                      <Icon size={16} />
+                                    </div>
+                                    <div>
+                                      <h5 className="text-xs font-bold text-slate-200 group-hover:text-white transition-colors">
+                                        {item.title}
+                                      </h5>
+                                      <p className="text-[10px] text-slate-500 group-hover:text-slate-400 leading-normal mt-1 transition-colors">
+                                        {item.desc}
+                                      </p>
+                                    </div>
+                                  </Link>
+                                );
+                              })}
+                            </div>
+                          </div>
+
+                          {/* Right Column: Training */}
+                          <div>
+                            <h4 className="text-xs font-bold text-white uppercase tracking-wider mb-4 border-b border-slate-800 pb-2">
+                              Training
+                            </h4>
+                            <div className="space-y-4">
+                              {[
+                                { title: 'DMS', desc: 'Document Management System for version control and regulatory dossiers', href: '/discovery-solution', icon: FileText },
+                                { title: 'TMS', desc: 'Training Management System for global teams and operations', href: '/discovery-solution', icon: Database },
+                                { title: 'LMS', desc: 'Learning Management System for compliance programs and training courses', href: '/discovery-solution', icon: BookOpen }
+                              ].map((item, idx) => {
+                                const Icon = item.icon;
+                                return (
+                                  <Link
+                                    key={idx}
+                                    to={item.href}
+                                    onClick={handleMouseLeave}
+                                    className="group flex gap-3 hover:bg-slate-800/20 p-2.5 -m-2.5 rounded-xl transition-all"
+                                  >
+                                    <div className="shrink-0 w-8 h-8 rounded-lg bg-slate-800/50 flex items-center justify-center text-slate-400 group-hover:bg-[#0f269a]/20 group-hover:text-blue-400 transition-colors">
+                                      <Icon size={16} />
+                                    </div>
+                                    <div>
+                                      <h5 className="text-xs font-bold text-slate-200 group-hover:text-white transition-colors">
+                                        {item.title}
+                                      </h5>
+                                      <p className="text-[10px] text-slate-500 group-hover:text-slate-400 leading-normal mt-1 transition-colors">
+                                        {item.desc}
+                                      </p>
+                                    </div>
+                                  </Link>
+                                );
+                              })}
+                            </div>
+                          </div>
+                        </div>
+                      )}
+
+                      {activeSolutionTab === 'data' && (
+                        <div className="grid grid-cols-2 gap-x-12">
+                          <div>
+                            <h4 className="text-xs font-bold text-white uppercase tracking-wider mb-4 border-b border-slate-800 pb-2">
+                              Services
+                            </h4>
+                            <div className="space-y-4">
+                              {[
+                               { title: 'Services 1', desc: 'Next-generation computational engines, AI design, and custom workflow pipelines', href: '/services-1', icon: Cpu },
+                                { title: 'Services 2', desc: 'Strategic translation, safety toxicology, CMC formulation, and clinical pharmacology', href: '/services-2', icon: Compass }
+                              ].map((item, idx) => {
+                                const Icon = item.icon;
+                                return (
+                                  <Link
+                                    key={idx}
+                                    to={item.href}
+                                    onClick={handleMouseLeave}
+                                    className="group flex gap-3 hover:bg-slate-800/20 p-2.5 -m-2.5 rounded-xl transition-all"
+                                  >
+                                    <div className="shrink-0 w-8 h-8 rounded-lg bg-slate-800/50 flex items-center justify-center text-slate-400 group-hover:bg-[#0f269a]/20 group-hover:text-blue-400 transition-colors">
+                                      <Icon size={16} />
+                                    </div>
+                                    <div>
+                                      <h5 className="text-xs font-bold text-slate-200 group-hover:text-white transition-colors">
+                                        {item.title}
+                                      </h5>
+                                      <p className="text-[10px] text-slate-500 group-hover:text-slate-400 leading-normal mt-1 transition-colors">
+                                        {item.desc}
+                                      </p>
+                                    </div>
+                                  </Link>
+                                );
+                              })}
+                            </div>
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            );
+          }
+
           const menuData = menuConfigs[hoveredLink];
           return (
             <div
-              className="absolute top-full left-0 right-0 w-full bg-[#0b1424] text-white border-t border-slate-800 shadow-[0_20px_50px_rgba(0,0,0,0.3)] z-50 animate-fadeIn hidden lg:block"
+              className="absolute top-full left-1/2 -translate-x-1/2 w-[92vw] max-w-6xl bg-[#0b1424] text-white border border-slate-800/80 shadow-[0_25px_60px_rgba(0,0,0,0.5)] z-50 animate-fadeIn hidden lg:block rounded-2xl overflow-hidden mt-2"
               onMouseEnter={() => handleMouseEnter(hoveredLink)}
               onMouseLeave={handleMouseLeave}
             >
-              <div className="max-w-7xl mx-auto w-full grid grid-cols-12 text-left">
+              <div className="w-full grid grid-cols-12 text-left">
                 {/* Left Column */}
-                <div className="col-span-3 bg-[#070d18]/50 p-8 border-r border-slate-800/60 flex flex-col justify-between">
+                <div className="col-span-3 bg-[#070d18]/50 p-6 border-r border-slate-800/60 flex flex-col justify-between">
                   <div>
                     <span className="text-[10px] font-extrabold text-[#00A878] uppercase tracking-wider font-mono">
                       {menuData.category}
@@ -473,13 +794,13 @@ export default function Navbar() {
                 </div>
 
                 {/* Center Column */}
-                <div className="col-span-6 p-8 grid grid-cols-2 gap-x-8 gap-y-6">
+                <div className="col-span-6 p-6 grid grid-cols-2 gap-x-6 gap-y-4">
                   {menuData.items.map((item: any, idx: number) => {
                     const IconComponent = item.icon;
                     return (
                       <Link
                         key={idx}
-                        to={menuData.href}
+                        to={item.href || menuData.href}
                         className="group flex gap-3 hover:bg-slate-800/20 p-2.5 -m-2.5 rounded-xl transition-all"
                       >
                         {IconComponent && (
@@ -501,34 +822,63 @@ export default function Navbar() {
                 </div>
 
                 {/* Right Column */}
-                <div className="col-span-3 bg-[#070d18]/30 p-8 flex flex-col justify-between border-l border-slate-800/60">
-                  <div className="space-y-4">
-                    <span className="text-[10px] font-extrabold text-blue-400 uppercase tracking-wider font-mono">
-                      Featured
-                    </span>
-                    <div className="overflow-hidden rounded-xl border border-slate-800 shadow-lg aspect-video relative group/img bg-slate-900 flex items-center justify-center">
-                      <img
-                        src={menuData.featured.image}
-                        alt={menuData.featured.title}
-                        className="w-full h-full object-cover group-hover/img:scale-105 transition-transform duration-500"
-                      />
+                <div className="col-span-3 bg-[#070d18]/30 p-6 flex flex-col justify-between border-l border-slate-800/60">
+                  {menuData.bySolution ? (
+                    <div className="space-y-4">
+                      <span className="text-[10px] font-extrabold text-blue-400 uppercase tracking-wider font-mono">
+                        {menuData.bySolution.title}
+                      </span>
+                      <ul className="space-y-2 mt-4">
+                        {menuData.bySolution.items.map((solItem: any, idx: number) => (
+                          <li key={idx}>
+                            <Link
+                              to={solItem.href || '#'}
+                              className="text-xs text-slate-400 hover:text-blue-400 transition-colors font-medium block py-0.5"
+                            >
+                              {solItem.title}
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                      <Link
+                        to={menuData.bySolution.href || '#'}
+                        className="group text-xs font-bold text-blue-400 hover:text-blue-300 flex items-center gap-1 pt-6 transition-colors self-start"
+                      >
+                        {menuData.bySolution.linkLabel || 'View software'}
+                        <ArrowRight size={12} className="group-hover:translate-x-0.5 transition-transform" />
+                      </Link>
                     </div>
-                    <div>
-                      <h4 className="text-xs font-bold text-white">
-                        {menuData.featured.title}
-                      </h4>
-                      <p className="text-[10px] text-slate-400 leading-normal mt-1">
-                        {menuData.featured.desc}
-                      </p>
-                    </div>
-                  </div>
-                  <Link
-                    to={menuData.featured.href}
-                    className="group text-xs font-bold text-blue-400 hover:text-blue-300 flex items-center gap-1 mt-6 transition-colors self-start"
-                  >
-                    {menuData.featured.linkLabel}
-                    <ChevronRight size={14} className="group-hover:translate-x-0.5 transition-transform" />
-                  </Link>
+                  ) : (
+                    <>
+                      <div className="space-y-4">
+                        <span className="text-[10px] font-extrabold text-blue-400 uppercase tracking-wider font-mono">
+                          Featured
+                        </span>
+                        <div className="overflow-hidden rounded-xl border border-slate-800 shadow-lg aspect-video relative group/img bg-slate-900 flex items-center justify-center">
+                          <img
+                            src={menuData.featured.image}
+                            alt={menuData.featured.title}
+                            className="w-full h-full object-cover group-hover/img:scale-105 transition-transform duration-500"
+                          />
+                        </div>
+                        <div>
+                          <h4 className="text-xs font-bold text-white">
+                            {menuData.featured.title}
+                          </h4>
+                          <p className="text-[10px] text-slate-400 leading-normal mt-1">
+                            {menuData.featured.desc}
+                          </p>
+                        </div>
+                      </div>
+                      <Link
+                        to={menuData.featured.href}
+                        className="group text-xs font-bold text-blue-400 hover:text-blue-300 flex items-center gap-1 mt-6 transition-colors self-start"
+                      >
+                        {menuData.featured.linkLabel}
+                        <ChevronRight size={14} className="group-hover:translate-x-0.5 transition-transform" />
+                      </Link>
+                    </>
+                  )}
                 </div>
               </div>
             </div>
@@ -541,29 +891,55 @@ export default function Navbar() {
         <div className="lg:hidden border-t border-slate-100 bg-white shadow-lg">
           <nav className="flex flex-col py-4 px-6 gap-2">
             <Link
-              to="/platform"
+              to="/discovery"
               onClick={() => setIsMenuOpen(false)}
               className={`text-sm font-semibold py-2 px-3 rounded-lg transition-all ${isPlatformPath
                   ? 'text-[#0f269a] bg-[#0f269a]/5 font-bold'
                   : 'text-slate-600 hover:text-[#0f269a] hover:bg-slate-50'
                 }`}
             >
-              Product
+              Discovery
             </Link>
+            <div className="px-3 pt-3 pb-1 text-xs font-bold text-slate-400 uppercase tracking-wider">
+              Solutions
+            </div>
             <Link
-              to="/solutions"
+              to="/discovery-solution"
               onClick={() => setIsMenuOpen(false)}
-              className={`text-sm font-semibold py-2 px-3 rounded-lg transition-all ${isSolutionsPath
+              className={`text-sm font-semibold py-2 pl-6 pr-3 rounded-lg transition-all ${location.pathname === '/discovery-solution'
                   ? 'text-[#0f269a] bg-[#0f269a]/5 font-bold'
                   : 'text-slate-600 hover:text-[#0f269a] hover:bg-slate-50'
                 }`}
             >
-              Solutions
+              Discovery Solution
             </Link>
+            <Link
+              to="/chemistry-solution"
+              onClick={() => setIsMenuOpen(false)}
+              className={`text-sm font-semibold py-2 pl-6 pr-3 rounded-lg transition-all ${location.pathname === '/chemistry-solution'
+                  ? 'text-[#0f269a] bg-[#0f269a]/5 font-bold'
+                  : 'text-slate-600 hover:text-[#0f269a] hover:bg-slate-50'
+                }`}
+            >
+              GQ Chemistry Solution
+            </Link>
+            <Link
+              to="/gpt-solutions"
+              onClick={() => setIsMenuOpen(false)}
+              className={`text-sm font-semibold py-2 pl-6 pr-3 rounded-lg transition-all ${location.pathname === '/gpt-solutions'
+                  ? 'text-[#0f269a] bg-[#0f269a]/5 font-bold'
+                  : 'text-slate-600 hover:text-[#0f269a] hover:bg-slate-50'
+                }`}
+            >
+              GQ GPT Solutions
+            </Link>
+            <div className="px-3 pt-3 pb-1 text-xs font-bold text-slate-400 uppercase tracking-wider">
+              Software
+            </div>
             <Link
               to="/chemistry"
               onClick={() => setIsMenuOpen(false)}
-              className={`text-sm font-semibold py-2 px-3 rounded-lg transition-all ${isChemistryPath
+              className={`text-sm font-semibold py-2 pl-6 pr-3 rounded-lg transition-all ${isChemistryPath
                   ? 'text-[#0f269a] bg-[#0f269a]/5 font-bold'
                   : 'text-slate-600 hover:text-[#0f269a] hover:bg-slate-50'
                 }`}
@@ -573,7 +949,7 @@ export default function Navbar() {
             <Link
               to="/gpt"
               onClick={() => setIsMenuOpen(false)}
-              className={`text-sm font-semibold py-2 px-3 rounded-lg transition-all ${isGptPath
+              className={`text-sm font-semibold py-2 pl-6 pr-3 rounded-lg transition-all ${isGptPath
                   ? 'text-[#0f269a] bg-[#0f269a]/5 font-bold'
                   : 'text-slate-600 hover:text-[#0f269a] hover:bg-slate-50'
                 }`}
@@ -583,7 +959,7 @@ export default function Navbar() {
             <Link
               to="/digital-twin"
               onClick={() => setIsMenuOpen(false)}
-              className={`text-sm font-semibold py-2 px-3 rounded-lg transition-all ${isDigitalTwinPath
+              className={`text-sm font-semibold py-2 pl-6 pr-3 rounded-lg transition-all ${isDigitalTwinPath
                   ? 'text-[#0f269a] bg-[#0f269a]/5 font-bold'
                   : 'text-slate-600 hover:text-[#0f269a] hover:bg-slate-50'
                 }`}
@@ -600,15 +976,16 @@ export default function Navbar() {
             >
               Services
             </Link>
+
             <Link
-              to="/drug-development"
+              to="/company"
               onClick={() => setIsMenuOpen(false)}
-              className={`text-sm font-semibold py-2 px-3 rounded-lg transition-all ${isDrugDevelopmentPath
+              className={`text-sm font-semibold py-2 px-3 rounded-lg transition-all ${isCompanyPath
                   ? 'text-[#0f269a] bg-[#0f269a]/5 font-bold'
                   : 'text-slate-600 hover:text-[#0f269a] hover:bg-slate-50'
                 }`}
             >
-              Drug Development Service
+              Company
             </Link>
 
             <div className="h-px bg-slate-100 my-2" />

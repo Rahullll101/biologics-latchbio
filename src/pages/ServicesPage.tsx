@@ -335,7 +335,7 @@ export default function ServicesPage() {
                     <input
                       type="email"
                       required
-                      placeholder="info@Genquantaa.com"
+                      placeholder="support@Genquantaa.com"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       className="w-full px-4 py-3 rounded-lg border border-white/10 text-slate-300 bg-[#0d1527] text-xs focus:outline-none focus:border-[#0f269a] focus:ring-1 focus:ring-[#0f269a]"

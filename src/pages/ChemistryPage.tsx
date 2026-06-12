@@ -200,10 +200,10 @@ export default function ChemistryPage() {
               Request Demo
             </button>
             <Link
-              to="/solutions"
+              to="/chemistry-solution"
               className="w-full sm:w-auto px-8 py-3.5 rounded-lg font-bold text-[#0f269a] bg-[#0f269a]/10 hover:bg-[#0f269a]/20 transition-colors text-sm shadow-md flex items-center justify-center"
             >
-              View Solutions
+              Explore GQ Chemistry Solution
             </Link>
           </form>
 

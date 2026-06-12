@@ -281,7 +281,7 @@ export default function DrugDevelopmentPage() {
 
         <div className="max-w-4xl space-y-5">
           <span className="inline-block px-3 py-1 rounded bg-slate-100 border border-slate-200 text-xs font-semibold text-slate-600">
-            GENQUANTAA SERVICES
+            SERVICES 2
           </span>
 
           <h1 className="text-4xl sm:text-5xl lg:text-[60px] font-normal tracking-tight leading-[1.12] bg-gradient-to-r from-[#0e172c] to-[#0f269a] bg-clip-text text-transparent max-w-3xl font-sans py-2">
@@ -534,7 +534,7 @@ export default function DrugDevelopmentPage() {
                 Explore Solutions
               </Link>
               <Link
-                to="/platform"
+                to="/discovery"
                 className="px-6 py-3 border border-white/10 text-slate-300 hover:bg-white/5 text-xs font-bold font-mono uppercase tracking-wider rounded-lg transition-all"
               >
                 Explore Software
@@ -635,7 +635,7 @@ export default function DrugDevelopmentPage() {
                     <input
                       type="email"
                       required
-                      placeholder="info@Genquantaa.com"
+                      placeholder="support@Genquantaa.com"
                       value={proposalEmail}
                       onChange={(e) => setProposalEmail(e.target.value)}
                       className="w-full px-4 py-3 rounded-lg border border-white/10 text-slate-300 bg-[#0d1527] text-xs focus:outline-none focus:border-[#0f269a] focus:ring-1 focus:ring-[#0f269a]"
@@ -723,7 +723,7 @@ export default function DrugDevelopmentPage() {
                 Discover our cutting-edge technology for biosimulation and data analytics.
               </p>
               <Link
-                to="/platform"
+                to="/discovery"
                 className="text-blue-400 font-bold text-xs hover:underline inline-flex items-center gap-1 pt-2"
               >
                 Learn more <ArrowRight className="w-3.5 h-3.5" />
@@ -731,12 +731,12 @@ export default function DrugDevelopmentPage() {
             </div>
 
             <div className="bg-[#070b13] border border-white/5 rounded-2xl p-6 space-y-3 text-left">
-              <h4 className="font-bold text-white text-base">About Us</h4>
+              <h4 className="font-bold text-white text-base">Company</h4>
               <p className="text-slate-400 text-xs leading-relaxed font-normal">
                 See why GenQuantaa is the global leader in drug development innovation.
               </p>
               <Link
-                to="/about"
+                to="/company"
                 className="text-blue-400 font-bold text-xs hover:underline inline-flex items-center gap-1 pt-2"
               >
                 Learn more <ArrowRight className="w-3.5 h-3.5" />

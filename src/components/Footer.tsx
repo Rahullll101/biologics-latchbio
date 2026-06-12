@@ -14,21 +14,13 @@ export default function Footer() {
     { src: '/certified_logos/t_works.png', alt: 'T-Works Partner', tileBg: 'bg-white border border-slate-100' },
   ];
 
-  const enterpriseCredentials = [
-    { title: 'SIEM Enabled', desc: 'Real-time security threat intelligence' },
-    { title: 'SOAR Orchestrated', desc: 'Automated incident containment' },
-    { title: 'Quantum Safe Encrypted', desc: 'Post-quantum key cryptography' },
-    { title: 'CMMI - 3 and CMMI 5', desc: 'Process maturity & engineering quality' },
-    { title: 'AI First Transformed', desc: 'Model-native enterprise operations' },
-  ];
-
   return (
     <footer className="w-full bg-[#070b13] text-white border-t border-white/10 pt-16 pb-12 px-6 relative z-10">
       <div className="max-w-6xl mx-auto space-y-12">
-        {/* Top Grid: Brand, Links, Enterprise Credentials */}
+        {/* Top Grid: Brand, Links */}
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
           {/* Brand & Tagline */}
-          <div className="md:col-span-5 space-y-4">
+          <div className="md:col-span-8 space-y-4">
             <div className="flex items-center gap-3">
               <img src="/logo.png" alt="GENQUANTAA Logo" className="h-14 w-auto shrink-0 object-contain scale-[1.8] origin-left" />
             </div>
@@ -44,42 +36,15 @@ export default function Footer() {
           </div>
 
           {/* Quick Links */}
-          <div className="md:col-span-3 space-y-3">
+          <div className="md:col-span-4 space-y-3">
             <h4 className="text-xs font-bold uppercase tracking-wider text-slate-400">Navigation</h4>
             <ul className="space-y-2 text-xs text-slate-400">
-              <li><Link to="/platform" className="hover:text-white transition-colors">Product</Link></li>
-              <li><Link to="/solutions" className="hover:text-white transition-colors">Solutions</Link></li>
-              <li><Link to="/about" className="hover:text-white transition-colors">About Us</Link></li>
+              <li><Link to="/discovery" className="hover:text-white transition-colors">Discovery</Link></li>
+              <li><Link to="/home#our-solutions" className="hover:text-white transition-colors">Solutions</Link></li>
+              <li><Link to="/company" className="hover:text-white transition-colors">Company</Link></li>
               <li><Link to="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link></li>
               <li><Link to="/cookies" className="hover:text-white transition-colors">Cookie Policy</Link></li>
               <li><Link to="/terms" className="hover:text-white transition-colors">Terms and Conditions</Link></li>
-            </ul>
-          </div>
-
-          {/* Enterprise Credentials */}
-          <div className="md:col-span-4 space-y-3">
-            <h4 className="text-xs font-bold uppercase tracking-wider text-slate-400">Enterprise Credentials</h4>
-            <ul className="space-y-2.5 text-xs">
-              {enterpriseCredentials.map((cred, idx) => (
-                <li key={idx} className="flex flex-col">
-                  <span className="font-semibold text-slate-200">{cred.title}</span>
-                  <span className="text-[10px] text-slate-500">{cred.desc}</span>
-                </li>
-              ))}
-              <li className="pt-2">
-                <div className="bg-gradient-to-r from-emerald-500/10 to-teal-500/10 border border-emerald-500/20 rounded-lg p-2.5 flex justify-between items-center">
-                  <div>
-                    <div className="text-[10px] font-bold text-emerald-400 uppercase tracking-wide">Best Place To Work</div>
-                    <div className="text-[9px] text-slate-400">Join our growing team today</div>
-                  </div>
-                  <a
-                    href="https://www.genesysquantis.com/templates/login.html"
-                    className="px-2.5 py-1 rounded bg-emerald-500 hover:bg-emerald-600 text-[10px] font-bold text-white transition-colors shadow-sm"
-                  >
-                    Apply Process
-                  </a>
-                </div>
-              </li>
             </ul>
           </div>
         </div>

@@ -9,6 +9,7 @@ interface CookieSection {
   title: string;
   description: string | React.ReactNode;
   details?: string[];
+  footer?: string | React.ReactNode;
 }
 
 export default function CookiesPage() {
@@ -21,7 +22,7 @@ export default function CookiesPage() {
     {
       id: "how-we-use-cookies",
       title: "How We Use Cookies",
-      description: "Genquantaa uses cookies to ensure the proper functioning of our scientific intelligence platform and website, enhance security, analyze traffic trends, and optimize user experience. We do not use cookies to collect personal data for promotional purposes without your consent."
+      description: "GenQuantaa Pvt Ltd (Zerokost Healthcare Pvt Ltd) uses cookies to ensure the proper functioning of our scientific intelligence platform and website, enhance security, analyze traffic trends, and optimize user experience. We do not use cookies to collect personal data for promotional purposes without your consent."
     },
     {
       id: "types-of-cookies",
@@ -51,7 +52,83 @@ export default function CookiesPage() {
     {
       id: "policy-updates",
       title: "Updates to This Cookie Policy",
-      description: "Genquantaa reserves the right to update this Cookie Policy at any time to reflect changes in our practices, technologies, or legal requirements. Any modifications will be posted directly on this page with an updated revision date."
+      description: "GenQuantaa Pvt Ltd (Zerokost Healthcare Pvt Ltd) reserves the right to update this Cookie Policy at any time to reflect changes in our practices, technologies, or legal requirements. Any modifications will be posted directly on this page with an updated revision date."
+    }
+  ];
+
+  const piiSections: CookieSection[] = [
+    {
+      id: "pii-collection",
+      title: "1. Collection of Personal Information",
+      description: "We may collect personally identifiable information (\"PII\") such as your name, email address, phone number, company name, IP address, and other information that you voluntarily provide while using our services."
+    },
+    {
+      id: "pii-consent",
+      title: "2. Opt-In Consent",
+      description: "Where required by applicable law, we will obtain your explicit consent before collecting, processing, or sharing your personal information for purposes such as:",
+      details: [
+        "Marketing communications",
+        "Newsletter subscriptions",
+        "Product updates and promotions",
+        "Sharing information with third-party partners"
+      ],
+      footer: "By selecting the appropriate consent option, you agree to the collection and use of your personal information for the specified purposes."
+    },
+    {
+      id: "pii-opt-out",
+      title: "3. Opt-Out Rights",
+      description: "You may withdraw your consent or opt out of certain data processing activities at any time by:",
+      details: [
+        "Clicking the \"Unsubscribe\" link in our emails",
+        "Updating your account preferences",
+        "Contacting us directly"
+      ],
+      footer: "Opting out will not affect the lawfulness of processing conducted before your withdrawal of consent."
+    },
+    {
+      id: "pii-data-usage",
+      title: "4. Data Usage",
+      description: "We use personal information to:",
+      details: [
+        "Provide and improve our services",
+        "Communicate with users",
+        "Respond to inquiries and support requests",
+        "Comply with legal obligations",
+        "Enhance security and fraud prevention measures"
+      ]
+    },
+    {
+      id: "pii-data-sharing",
+      title: "5. Data Sharing",
+      description: "We do not sell personal information. We may share personal information with trusted service providers or legal authorities when required by law or necessary to provide our services."
+    },
+    {
+      id: "pii-data-retention",
+      title: "6. Data Retention",
+      description: "Personal information will be retained only for as long as necessary to fulfill the purposes outlined in this policy or as required by applicable laws and regulations."
+    },
+    {
+      id: "pii-rights",
+      title: "7. Your Rights",
+      description: "Depending on your jurisdiction, you may have the right to:",
+      details: [
+        "Access your personal information",
+        "Correct inaccurate information",
+        "Request deletion of your information",
+        "Restrict or object to processing",
+        "Withdraw consent at any time"
+      ]
+    },
+    {
+      id: "pii-contact",
+      title: "8. Contact Us",
+      description: (
+        <span>
+          If you have questions regarding this policy or wish to exercise your privacy rights, please contact us at:{' '}
+          <a href="mailto:support@Genquantaa.com" className="text-blue-400 hover:underline font-medium">support@Genquantaa.com</a>.
+        </span>
+      ),
+      footer: "Last Updated: June 2026"
     }
   ];
 
@@ -71,7 +148,7 @@ export default function CookiesPage() {
 
         <div className="space-y-4">
           <h1 className="text-4xl sm:text-5xl font-bold tracking-tight text-white leading-tight bg-gradient-to-r from-white via-slate-100 to-slate-400 bg-clip-text text-transparent">
-            Genquantaa Cookie Policy
+            GenQuantaa Pvt Ltd (Zerokost Healthcare Pvt Ltd) Cookie Policy
           </h1>
           <p className="text-xs text-slate-500 font-mono">Cookie Policy • Last updated: June 2026</p>
         </div>
@@ -82,7 +159,7 @@ export default function CookiesPage() {
         <div className="space-y-8 text-slate-300 text-sm leading-relaxed font-light">
           
           <p className="text-base text-slate-200 font-normal">
-            This Cookie Policy describes how Genquantaa uses cookies, pixels, trackers, and similar technologies on our website and digital services.
+            This Cookie Policy describes how GenQuantaa Pvt Ltd (Zerokost Healthcare Pvt Ltd) uses cookies, pixels, trackers, and similar technologies on our website and digital services.
           </p>
 
           {/* Quick Contact Alert */}
@@ -94,7 +171,7 @@ export default function CookiesPage() {
               </h4>
               <p className="text-xs text-slate-300">
                 If you have any questions about our use of cookies or technical data processing, please contact us at{' '}
-                <a href="mailto:info@Genquantaa.com" className="text-blue-400 hover:underline font-medium">info@Genquantaa.com</a>.
+                <a href="mailto:support@Genquantaa.com" className="text-blue-400 hover:underline font-medium">support@Genquantaa.com</a>.
               </p>
             </div>
           </div>
@@ -126,6 +203,54 @@ export default function CookiesPage() {
                       </li>
                     ))}
                   </ul>
+                )}
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Supplementary Addition: PII Consent Policy */}
+          <div className="pt-16 border-t border-white/5 space-y-4">
+            <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-white leading-tight bg-gradient-to-r from-white via-slate-100 to-slate-400 bg-clip-text text-transparent">
+              Personal Information (PII) Collection and Consent Policy
+            </h2>
+            <p className="text-slate-400 text-sm font-light">
+              Supplementary policy outlining how we collect, obtain consent for, process, and protect your personally identifiable information.
+            </p>
+          </div>
+
+          {/* PII Policy Card Sections */}
+          <div className="space-y-6 pt-6">
+            {piiSections.map((sec, idx) => (
+              <motion.div
+                key={sec.id}
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, delay: (sections.length + idx) * 0.05 }}
+                className="bg-white/5 border border-white/10 rounded-2xl p-6 sm:p-8 space-y-4"
+              >
+                <div className="flex items-center gap-3 border-b border-white/10 pb-3">
+                  <ShieldCheck className="w-5 h-5 text-blue-400" />
+                  <h3 className="text-lg font-bold text-white tracking-wide">{sec.title}</h3>
+                </div>
+                
+                <div className="leading-relaxed text-slate-300 text-sm">
+                  {sec.description}
+                </div>
+
+                {sec.details && (
+                  <ul className="space-y-2.5 pl-5 list-disc text-slate-400 text-xs">
+                    {sec.details.map((detail, dIdx) => (
+                      <li key={dIdx}>
+                        {detail}
+                      </li>
+                    ))}
+                  </ul>
+                )}
+
+                {sec.footer && (
+                  <p className="text-slate-300 text-sm mt-3 pt-2 border-t border-white/5">
+                    {sec.footer}
+                  </p>
                 )}
               </motion.div>
             ))}

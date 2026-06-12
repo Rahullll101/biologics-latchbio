@@ -853,7 +853,7 @@ export default function LandingPage() {
       <section className="bg-white pt-40 pb-20 px-6 max-w-7xl mx-auto text-left relative">
         <div className="max-w-4xl space-y-6">
           <span className="inline-block px-3 py-1 rounded bg-slate-100 border border-slate-200 text-xs font-semibold text-slate-600">
-            Product
+            Discovery
           </span>
 
           <h1 className="text-4xl sm:text-5xl lg:text-[60px] font-normal tracking-tight leading-[1.12] bg-gradient-to-r from-[#0e172c] to-[#0f269a] bg-clip-text text-transparent max-w-3xl font-sans py-2">
@@ -880,10 +880,10 @@ export default function LandingPage() {
               Request Demo
             </button>
             <Link
-              to="/solutions"
+              to="/discovery-solution"
               className="w-full sm:w-auto px-8 py-3.5 rounded-lg font-bold text-[#0f269a] bg-[#0f269a]/10 hover:bg-[#0f269a]/20 transition-colors text-sm shadow-md flex items-center justify-center"
             >
-              Test Solutions Page
+              explore discovery solution
             </Link>
           </form>
 
@@ -1576,7 +1576,7 @@ export default function LandingPage() {
                 Secure and private in your own cloud environment.
               </h2>
               <p className="text-slate-400 text-sm leading-relaxed max-w-2xl">
-                Keep ownership and privacy over your data on Amazon s3 with 99.999999999% (11 9s) of data durability. GenQuantaa helps you save months and become compliant on day one with the latest regulations, standards, and industry frameworks such as SOC-2 Type II and HIPAA. Contact us at <a href="mailto:info@Genquantaa.com" className="text-blue-400 font-semibold underline hover:text-blue-300 transition-colors">info@Genquantaa.com</a>.
+                Keep ownership and privacy over your data on Amazon s3 with 99.999999999% (11 9s) of data durability. GenQuantaa helps you save months and become compliant on day one with the latest regulations, standards, and industry frameworks such as SOC-2 Type II and HIPAA. Contact us at <a href="mailto:support@Genquantaa.com" className="text-blue-400 font-semibold underline hover:text-blue-300 transition-colors">support@Genquantaa.com</a>.
               </p>
             </div>
 

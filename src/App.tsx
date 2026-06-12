@@ -16,13 +16,26 @@ import AboutPage from './pages/AboutPage';
 import PrivacyPage from './pages/PrivacyPage';
 import TermsPage from './pages/TermsPage';
 import CookiesPage from './pages/CookiesPage';
+import BiologicsDiscoveryPage from './pages/BiologicsDiscoveryPage';
+import ChemistryQuantisPage from './pages/ChemistryQuantisPage';
+import WallahGPTPage from './pages/WallahGPTPage';
+import Services1Page from './pages/Services1Page';
 
 function ScrollToTop() {
-  const { pathname } = useLocation();
+  const { pathname, hash } = useLocation();
 
   useEffect(() => {
+    if (hash) {
+      const element = document.getElementById(hash.substring(1));
+      if (element) {
+        setTimeout(() => {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }, 100);
+        return;
+      }
+    }
     window.scrollTo(0, 0);
-  }, [pathname]);
+  }, [pathname, hash]);
 
   return null;
 }
@@ -34,7 +47,8 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Navigate to="/home" replace />} />
         <Route path="/home" element={<HomePage />} />
-        <Route path="/platform" element={<LandingPage />} />
+        <Route path="/platform" element={<Navigate to="/discovery" replace />} />
+        <Route path="/discovery" element={<LandingPage />} />
         <Route path="/chemistry" element={<ChemistryPage />} />
         <Route path="/gpt" element={<GptPage />} />
         <Route path="/solutions" element={<SolutionsPage />} />
@@ -43,13 +57,21 @@ export default function App() {
         <Route path="/lead-optimization" element={<LeadOptimizationPage />} />
         <Route path="/wet-lab" element={<WetLabValidationPage />} />
         <Route path="/digital-twin" element={<DigitalTwinPage />} />
-        <Route path="/drug-development" element={<DrugDevelopmentPage />} />
+        <Route path="/drug-development" element={<Navigate to="/services-2" replace />} />
+        <Route path="/services-2" element={<DrugDevelopmentPage />} />
         <Route path="/services" element={<ServicesPage />} />
-        <Route path="/about" element={<AboutPage />} />
+        <Route path="/about" element={<Navigate to="/company" replace />} />
+        <Route path="/company" element={<AboutPage />} />
         <Route path="/privacy" element={<PrivacyPage />} />
         <Route path="/terms" element={<TermsPage />} />
         <Route path="/cookies" element={<CookiesPage />} />
+        <Route path="/discovery-solution" element={<BiologicsDiscoveryPage />} />
+        <Route path="/chemistry-solution" element={<ChemistryQuantisPage />} />
+        <Route path="/gpt-solutions" element={<WallahGPTPage />} />
+        <Route path="/services-1" element={<Services1Page />} />
       </Routes>
     </BrowserRouter>
   );
 }
+
+

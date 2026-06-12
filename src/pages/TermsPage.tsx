@@ -22,7 +22,7 @@ export default function TermsPage() {
         "Terms of payment apply to all goods and services. Supplier's terms of business do not apply to this transaction.",
         "Time is of the essence for delivery of all goods and services.",
         "Vendor is responsible for the performance of its sub-contractors.",
-        "Genquantaa is responsible for the import customs clearing of goods, unless otherwise agreed."
+        "GenQuantaa Pvt Ltd (Zerokost Healthcare Pvt Ltd) is responsible for the import customs clearing of goods, unless otherwise agreed."
       ]
     },
     {
@@ -72,7 +72,7 @@ export default function TermsPage() {
       bullets: [
         <span key="billing-email">
           Vendor must submit invoices containing the Purchase Order number and Client contact details. Invoices should be sent to the email address specified in the Purchase Order:{' '}
-          <a href="mailto:info@Genquantaa.com" className="text-blue-400 hover:underline font-medium">info@Genquantaa.com</a>.
+          <a href="mailto:support@Genquantaa.com" className="text-blue-400 hover:underline font-medium">support@Genquantaa.com</a>.
         </span>,
         "Invoices must be in the currency specified in the Purchase Order.",
         "Client will pay correct invoices within 60 days of receipt, subject to any withholding tax.",
@@ -142,7 +142,7 @@ export default function TermsPage() {
 
         <div className="space-y-4">
           <h1 className="text-4xl sm:text-5xl font-bold tracking-tight text-white leading-tight bg-gradient-to-r from-white via-slate-100 to-slate-400 bg-clip-text text-transparent">
-            Genquantaa General Terms of Business
+            GenQuantaa Pvt Ltd (Zerokost Healthcare Pvt Ltd) General Terms of Business
           </h1>
           <p className="text-xs text-slate-500 font-mono">Terms and Conditions • Last updated: June 2026</p>
         </div>
@@ -153,7 +153,7 @@ export default function TermsPage() {
         <div className="space-y-8 text-slate-300 text-sm leading-relaxed font-light">
           
           <p className="text-base text-slate-200 font-normal">
-            These General Terms of Business apply to all transactions, purchase orders, agreements, and deliverables between Genquantaa and its vendors, partners, or service providers. Please review these terms carefully.
+            These General Terms of Business apply to all transactions, purchase orders, agreements, and deliverables between GenQuantaa Pvt Ltd (Zerokost Healthcare Pvt Ltd) and its vendors, partners, or service providers. Please review these terms carefully.
           </p>
 
           {/* Quick Contact Alert */}
@@ -165,7 +165,7 @@ export default function TermsPage() {
               </h4>
               <p className="text-xs text-slate-300">
                 For questions or requests regarding these General Terms of Business, please contact our administrative team at{' '}
-                <a href="mailto:info@Genquantaa.com" className="text-blue-400 hover:underline font-medium">info@Genquantaa.com</a>.
+                <a href="mailto:support@Genquantaa.com" className="text-blue-400 hover:underline font-medium">support@Genquantaa.com</a>.
               </p>
             </div>
           </div>

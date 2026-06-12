@@ -309,10 +309,10 @@ export default function GptPage() {
               <ArrowRight size={16} />
             </a>
             <Link
-              to="/solutions"
+              to="/gpt-solutions"
               className="w-full sm:w-auto px-8 py-3.5 rounded-lg font-bold text-[#0f269a] bg-[#0f269a]/10 hover:bg-[#0f269a]/20 transition-colors text-sm shadow-md text-center"
             >
-              View Solutions
+              GQ GPT Solutions
             </Link>
           </div>
         </div>
