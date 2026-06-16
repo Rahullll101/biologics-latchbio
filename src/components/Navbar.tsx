@@ -484,14 +484,20 @@ export default function Navbar() {
   return (
     <div className="fixed top-0 left-0 right-0 w-full z-50 shadow-sm border-b border-slate-100 bg-white">
       {/* Top Banner Marquee */}
-      <div className="bg-[#0b1120] text-white py-1.5 text-xs sm:text-sm font-semibold tracking-wide">
-        <marquee scrollamount="5">
+      <div className="bg-[#0b1120] text-white py-1.5 text-xs sm:text-sm font-semibold tracking-wide overflow-hidden flex">
+        <div className="animate-marquee flex whitespace-nowrap w-max">
           <span className="mx-8">Accelerating Life Sciences Innovation with AI-Powered Platforms</span>
           <span className="mx-8">Accelerating Life Sciences Innovation with AI-Powered Platforms</span>
           <span className="mx-8">Accelerating Life Sciences Innovation with AI-Powered Platforms</span>
           <span className="mx-8">Accelerating Life Sciences Innovation with AI-Powered Platforms</span>
           <span className="mx-8">Accelerating Life Sciences Innovation with AI-Powered Platforms</span>
-        </marquee>
+          {/* Duplicate set for seamless looping */}
+          <span className="mx-8">Accelerating Life Sciences Innovation with AI-Powered Platforms</span>
+          <span className="mx-8">Accelerating Life Sciences Innovation with AI-Powered Platforms</span>
+          <span className="mx-8">Accelerating Life Sciences Innovation with AI-Powered Platforms</span>
+          <span className="mx-8">Accelerating Life Sciences Innovation with AI-Powered Platforms</span>
+          <span className="mx-8">Accelerating Life Sciences Innovation with AI-Powered Platforms</span>
+        </div>
       </div>
       
       {/* Navigation Bar */}
@@ -499,7 +505,7 @@ export default function Navbar() {
         <div className="flex items-center gap-8">
           {/* Logo */}
           <Link to="/discovery-solution" className="flex items-center group cursor-pointer shrink-0">
-            <img src="/logo.png" alt="GENQUANTAA Logo" className="h-10 w-auto object-contain" />
+            <img src="/logo.png" alt="GENQUANTAA Logo" className="h-12 sm:h-14 w-auto object-contain" />
           </Link>
 
           <nav className="hidden lg:flex items-center gap-6">
@@ -666,7 +672,7 @@ export default function Navbar() {
                             quality: 'GENQUANTAA QUALITY CLOUD',
                             data: 'GENQUANTAA DATA CLOUD',
                             'market-access': 'GENQUANTAA COMMERCIAL CLOUD',
-                            rnd: 'GENQUANTAA R&D CLOUD'
+                            rnd: 'Discovery Platform For Biology'
                           }[activeSolutionTab]
                         }
                       </span>
@@ -677,7 +683,7 @@ export default function Navbar() {
                             quality: 'GenQuantaa Quality Platform',
                             data: 'GenQuantaa Data Platform',
                             'market-access': 'GenQuantaa Market Access Platform',
-                            rnd: 'GenQuantaa R&D Platform'
+                            rnd: 'Discovery Platform For Biology'
                           }[activeSolutionTab]
                         }
                       </h3>
