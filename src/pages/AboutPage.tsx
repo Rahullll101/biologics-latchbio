@@ -36,6 +36,11 @@ interface ObjectiveItem {
 
 export default function AboutPage() {
   const [showPopup, setShowPopup] = useState(false);
+  const [demoSubmitted, setDemoSubmitted] = useState(false);
+  const [demoEmail, setDemoEmail] = useState('');
+  const [demoService, setDemoService] = useState('');
+  const [demoCompanyName, setDemoCompanyName] = useState('');
+  const [demoPersonName, setDemoPersonName] = useState('');
 
   useEffect(() => {
     const hasSeen = sessionStorage.getItem('hasSeenMilestonePopup');
@@ -48,6 +53,19 @@ export default function AboutPage() {
   const handleClose = () => {
     setShowPopup(false);
     sessionStorage.setItem('hasSeenMilestonePopup', 'true');
+  };
+
+  const handleDemoSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!demoEmail || !demoService || !demoPersonName || !demoCompanyName) return;
+    setDemoSubmitted(true);
+    setTimeout(() => {
+      setDemoEmail('');
+      setDemoService('');
+      setDemoCompanyName('');
+      setDemoPersonName('');
+      setDemoSubmitted(false);
+    }, 4000);
   };
 
   const objectives: ObjectiveItem[] = [
@@ -473,6 +491,81 @@ export default function AboutPage() {
                 Get in Touch
               </a>
             </div>
+          </div>
+        </div>
+      </div>
+
+      {/* ── Request a Demo Section ── */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-24 relative z-10" id="demo">
+        <div className="bg-gradient-to-br from-[#0c142b] via-[#0b0f19] to-[#05070c] text-white rounded-[32px] border border-white/5 overflow-hidden shadow-[0_0_50px_rgba(0,0,0,0.3)] py-16 px-6 sm:px-12 text-center relative max-w-4xl mx-auto">
+          <div className="absolute inset-0 bg-blue-500/5 blur-3xl pointer-events-none"></div>
+
+          <div className="max-w-xl mx-auto space-y-8 relative z-10">
+            <div className="space-y-3">
+              <h2 className="text-3xl font-normal text-white">Request a Demo</h2>
+              <p className="text-slate-400 text-sm font-light">Select a service below to schedule a personalized platform walkthrough.</p>
+            </div>
+
+            <form onSubmit={handleDemoSubmit} className="flex flex-col gap-4 max-w-md mx-auto w-full">
+              <select
+                required
+                value={demoService}
+                onChange={(e) => setDemoService(e.target.value)}
+                className="w-full px-5 py-3 rounded-xl bg-slate-900 border border-white/10 text-slate-200 focus:outline-none focus:border-blue-500 text-sm appearance-none cursor-pointer"
+                style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' fill=\'none\' viewBox=\'0 0 24 24\' stroke=\'%2364748b\'%3E%3Cpath stroke-linecap=\'round\' stroke-linejoin=\'round\' stroke-width=\'2\' d=\'M19 9l-7 7-7-7\'%3E%3C/path%3E%3C/svg%3E")', backgroundRepeat: 'no-repeat', backgroundPosition: 'right 1rem center', backgroundSize: '1.2em 1.2em' }}
+              >
+                <option value="" disabled>Select a Service</option>
+                <option value="discovery">Discovery Solution</option>
+                <option value="chemistry">GQ Chemistry Solution</option>
+                <option value="gpt">GQ GPT Solutions</option>
+                <option value="digital-twin">Precision Oncology Digital Twin</option>
+                <option value="consulting">AI & Data Science Consulting</option>
+                <option value="regulatory">Regulatory Affairs Strategy</option>
+                <option value="other">Other / General Inquiry</option>
+              </select>
+
+              <div className="flex flex-col sm:flex-row items-center gap-4 w-full">
+                <input
+                  type="text"
+                  required
+                  value={demoPersonName}
+                  onChange={(e) => setDemoPersonName(e.target.value)}
+                  placeholder="Your Name"
+                  className="w-full px-5 py-3 rounded-xl bg-slate-900 border border-white/10 text-slate-200 focus:outline-none focus:border-blue-500 text-sm placeholder:text-slate-500"
+                />
+                <input
+                  type="text"
+                  required
+                  value={demoCompanyName}
+                  onChange={(e) => setDemoCompanyName(e.target.value)}
+                  placeholder="Company Name"
+                  className="w-full px-5 py-3 rounded-xl bg-slate-900 border border-white/10 text-slate-200 focus:outline-none focus:border-blue-500 text-sm placeholder:text-slate-500"
+                />
+              </div>
+
+              <div className="flex flex-col sm:flex-row items-center gap-3 w-full">
+                <input
+                  type="email"
+                  required
+                  value={demoEmail}
+                  onChange={(e) => setDemoEmail(e.target.value)}
+                  placeholder="Enter your work email..."
+                  className="w-full px-5 py-3 rounded-full bg-slate-900 border border-white/10 text-slate-200 focus:outline-none focus:border-blue-500 text-xs placeholder:text-slate-500"
+                />
+                <button 
+                  type="submit" 
+                  className="w-full sm:w-auto px-6 py-3 rounded-full font-bold text-white bg-[#0f269a] hover:bg-[#0a1a72] active:scale-95 transition-all text-xs uppercase tracking-wider font-mono shadow-md whitespace-nowrap"
+                >
+                  Request Demo
+                </button>
+              </div>
+            </form>
+
+            {demoSubmitted && (
+              <div className="p-3 bg-blue-500/10 border border-blue-500/20 rounded-lg text-blue-400 text-xs font-semibold animate-pulse text-center">
+                ✓ Demo request received for {demoService}. We'll be in touch soon!
+              </div>
+            )}
           </div>
         </div>
       </div>

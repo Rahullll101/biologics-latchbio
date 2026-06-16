@@ -438,6 +438,46 @@ export default function Navbar() {
         linkLabel: 'Read Success Stories',
         objectFit: 'contain'
       }
+    },
+    businesses: {
+      category: 'Our Businesses',
+      title: 'GenQuantaa Ecosystem',
+      desc: 'Explore the different divisions, subsidiaries, and platforms under GenQuantaa.',
+      href: '/home',
+      discoverLabel: 'Explore All',
+      items: [
+        {
+          title: 'Academy',
+          desc: 'GenQuantaa educational initiatives and learning programs.',
+          icon: BookOpen,
+          href: 'https://academy.genquantis.com/#home'
+        },
+        {
+          title: 'Healthcare',
+          desc: 'CuraQuantis healthcare solutions and clinical applications.',
+          icon: Activity,
+          href: 'https://curaquantis.com/'
+        },
+        {
+          title: 'Quantum',
+          desc: 'Quantum computing and advanced algorithms research.',
+          icon: Cpu,
+          href: 'https://genquantis.com/'
+        },
+        {
+          title: 'Life Science',
+          desc: 'Life Sciences platform and drug discovery solutions.',
+          icon: FlaskConical,
+          href: '/home'
+        }
+      ],
+      featured: {
+        title: 'Enterprise Innovation',
+        desc: 'Bridging the gap between cutting-edge technology and impactful life science applications.',
+        image: '/screenshots/dashboard.png',
+        href: '/home',
+        linkLabel: 'Learn More'
+      }
     }
   };
 
@@ -533,7 +573,36 @@ export default function Navbar() {
                 Company
               </Link>
             </div>
+
+            {/* Additional Links */}
+            <div className="flex items-center gap-6 ml-2">
+              {/* Businesses Link */}
+              <div className="py-2" onMouseEnter={() => handleMouseEnter('businesses')} onMouseLeave={handleMouseLeave}>
+                <span
+                  className={`text-sm font-semibold transition-colors relative py-1 cursor-default ${
+                    hoveredLink === 'businesses'
+                      ? 'text-[#0f269a] font-bold border-b-2 border-[#0f269a] pb-1'
+                      : 'text-slate-600 hover:text-[#0f269a]'
+                  }`}
+                >
+                  Businesses
+                </span>
+              </div>
+              <Link to="/discovery" className="text-sm font-semibold text-slate-600 hover:text-[#0f269a] transition-colors">
+                Explore Discovery
+              </Link>
+              <Link to="/company#demo" className="text-sm font-semibold text-[#0f269a] hover:text-[#0a1a72] transition-colors">
+                Request Demo
+              </Link>
+            </div>
           </nav>
+        </div>
+
+        {/* Right Side Action Links */}
+        <div className="hidden lg:flex items-center gap-6 pr-4">
+          <Link to="/signup" className="px-5 py-2 rounded-xl bg-[#0f269a] hover:bg-[#0a1a72] text-white text-sm font-semibold shadow-sm transition-all transform hover:-translate-y-0.5">
+            Sign Up
+          </Link>
         </div>
 
 
@@ -878,12 +947,11 @@ export default function Navbar() {
                 <div className="col-span-6 p-6 grid grid-cols-2 gap-x-6 gap-y-4">
                   {menuData.items.map((item: any, idx: number) => {
                     const IconComponent = item.icon;
-                    return (
-                      <Link
-                        key={idx}
-                        to={item.href || menuData.href}
-                        className="group flex gap-3 hover:bg-slate-800/20 p-2.5 -m-2.5 rounded-xl transition-all"
-                      >
+                    const href = item.href || menuData.href;
+                    const isExternal = href.startsWith('http');
+
+                    const innerContent = (
+                      <>
                         {IconComponent && (
                           <div className="shrink-0 w-8 h-8 rounded-lg bg-slate-800/50 flex items-center justify-center text-slate-400 group-hover:bg-[#0f269a]/20 group-hover:text-blue-400 transition-colors">
                             <IconComponent size={16} />
@@ -897,6 +965,26 @@ export default function Navbar() {
                             {item.desc}
                           </p>
                         </div>
+                      </>
+                    );
+
+                    return isExternal ? (
+                      <a
+                        key={idx}
+                        href={href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="group flex gap-3 hover:bg-slate-800/20 p-2.5 -m-2.5 rounded-xl transition-all"
+                      >
+                        {innerContent}
+                      </a>
+                    ) : (
+                      <Link
+                        key={idx}
+                        to={href}
+                        className="group flex gap-3 hover:bg-slate-800/20 p-2.5 -m-2.5 rounded-xl transition-all"
+                      >
+                        {innerContent}
                       </Link>
                     );
                   })}
