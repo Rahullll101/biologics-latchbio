@@ -41,6 +41,7 @@ export default function AboutPage() {
   const [demoService, setDemoService] = useState('');
   const [demoCompanyName, setDemoCompanyName] = useState('');
   const [demoPersonName, setDemoPersonName] = useState('');
+  const [demoPurpose, setDemoPurpose] = useState('');
 
   useEffect(() => {
     const hasSeen = sessionStorage.getItem('hasSeenMilestonePopup');
@@ -57,13 +58,14 @@ export default function AboutPage() {
 
   const handleDemoSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!demoEmail || !demoService || !demoPersonName || !demoCompanyName) return;
+    if (!demoEmail || !demoService || !demoPersonName || !demoCompanyName || !demoPurpose) return;
     setDemoSubmitted(true);
     setTimeout(() => {
       setDemoEmail('');
       setDemoService('');
       setDemoCompanyName('');
       setDemoPersonName('');
+      setDemoPurpose('');
       setDemoSubmitted(false);
     }, 4000);
   };
@@ -542,6 +544,15 @@ export default function AboutPage() {
                   className="w-full px-5 py-3 rounded-xl bg-slate-900 border border-white/10 text-slate-200 focus:outline-none focus:border-blue-500 text-sm placeholder:text-slate-500"
                 />
               </div>
+
+              <input
+                type="text"
+                required
+                value={demoPurpose}
+                onChange={(e) => setDemoPurpose(e.target.value)}
+                placeholder="Purpose of Demo (e.g. Pipeline Integration)"
+                className="w-full px-5 py-3 rounded-xl bg-slate-900 border border-white/10 text-slate-200 focus:outline-none focus:border-blue-500 text-sm placeholder:text-slate-500"
+              />
 
               <div className="flex flex-col sm:flex-row items-center gap-3 w-full">
                 <input
