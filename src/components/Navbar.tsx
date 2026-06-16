@@ -606,9 +606,9 @@ export default function Navbar() {
 
         {/* Right Side Action Links */}
         <div className="hidden lg:flex items-center gap-6 pr-4">
-          <Link to="/signup" className="px-5 py-2 rounded-xl bg-[#0f269a] hover:bg-[#0a1a72] text-white text-sm font-semibold shadow-sm transition-all transform hover:-translate-y-0.5">
+          <a href="https://www.genesysquantis.com/templates/login.html" className="px-5 py-2 rounded-xl bg-[#0f269a] hover:bg-[#0a1a72] text-white text-sm font-semibold shadow-sm transition-all transform hover:-translate-y-0.5">
             Sign Up
-          </Link>
+          </a>
         </div>
 
 
