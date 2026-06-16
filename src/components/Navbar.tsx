@@ -38,7 +38,7 @@ export default function Navbar() {
   const isDigitalTwinPath = location.pathname === '/digital-twin';
 
   const isServicesPath = location.pathname === '/services';
-  const isPlatformPath = location.pathname === '/discovery';
+  const isPlatformPath = location.pathname === '/home' || location.pathname === '/';
   const isCompanyPath = location.pathname === '/company';
 
   const handleMouseEnter = (linkName: string) => {
@@ -443,11 +443,22 @@ export default function Navbar() {
 
   return (
     <div className="fixed top-0 left-0 right-0 w-full z-50 shadow-sm border-b border-slate-100 bg-white">
+      {/* Top Banner Marquee */}
+      <div className="bg-[#0b1120] text-white py-1.5 text-xs sm:text-sm font-semibold tracking-wide">
+        <marquee scrollamount="5">
+          <span className="mx-8">Accelerating Life Sciences Innovation with AI-Powered Platforms</span>
+          <span className="mx-8">Accelerating Life Sciences Innovation with AI-Powered Platforms</span>
+          <span className="mx-8">Accelerating Life Sciences Innovation with AI-Powered Platforms</span>
+          <span className="mx-8">Accelerating Life Sciences Innovation with AI-Powered Platforms</span>
+          <span className="mx-8">Accelerating Life Sciences Innovation with AI-Powered Platforms</span>
+        </marquee>
+      </div>
+      
       {/* Navigation Bar */}
       <header className="w-full bg-white py-4 px-4 sm:px-8 flex items-center justify-between relative">
         <div className="flex items-center gap-8">
           {/* Logo */}
-          <Link to="/home" className="flex items-center group cursor-pointer shrink-0">
+          <Link to="/discovery-solution" className="flex items-center group cursor-pointer shrink-0">
             <img src="/logo.png" alt="GENQUANTAA Logo" className="h-10 w-auto object-contain" />
           </Link>
 
@@ -455,7 +466,7 @@ export default function Navbar() {
             {/* Product Link */}
             <div className="py-2" onMouseEnter={() => handleMouseEnter('product')} onMouseLeave={handleMouseLeave}>
               <Link
-                to="/discovery"
+                to="/home"
                 className={`text-sm font-semibold transition-colors relative py-1 ${
                   isPlatformPath || hoveredLink === 'product'
                     ? 'text-[#0f269a] font-bold border-b-2 border-[#0f269a] pb-1'
@@ -963,7 +974,7 @@ export default function Navbar() {
         <div className="lg:hidden border-t border-slate-100 bg-white shadow-lg">
           <nav className="flex flex-col py-4 px-6 gap-2">
             <Link
-              to="/discovery"
+              to="/home"
               onClick={() => setIsMenuOpen(false)}
               className={`text-sm font-semibold py-2 px-3 rounded-lg transition-all ${isPlatformPath
                   ? 'text-[#0f269a] bg-[#0f269a]/5 font-bold'
