@@ -564,31 +564,7 @@ export default function ServicesPage() {
 
       {/* ────────────────────── SECTION 2: SERVICES 2 ────────────────────── */}
       <div id="services-2" className="scroll-mt-24 border-t border-slate-200/80 pt-16">
-        {/* Stats Counter Section */}
-        <section className="max-w-7xl mx-auto px-6 pb-16">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 text-left">
-            <div className="space-y-2">
-              <div className="text-4xl font-extrabold text-[#0f269a] tracking-tight">300+</div>
-              <div className="text-slate-500 text-xs font-semibold uppercase tracking-wider leading-relaxed">
-                Pharmacology & drug development consultants
-              </div>
-            </div>
 
-            <div className="space-y-2">
-              <div className="text-4xl font-extrabold text-[#0f269a] tracking-tight">90%</div>
-              <div className="text-slate-500 text-xs font-semibold uppercase tracking-wider leading-relaxed">
-                of FDA approvals for novel drugs since 2014 supported by GenQuantaa
-              </div>
-            </div>
-
-            <div className="space-y-2">
-              <div className="text-4xl font-extrabold text-[#0f269a] tracking-tight">700+</div>
-              <div className="text-slate-500 text-xs font-semibold uppercase tracking-wider leading-relaxed">
-                Peer-reviewed scientific publications on biosimulation & MIDD
-              </div>
-            </div>
-          </div>
-        </section>
 
         {/* Consulting Cards block container matching Product page layout */}
         <section className="max-w-7xl mx-auto px-6 pb-16">
