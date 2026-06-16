@@ -856,15 +856,15 @@ export default function LandingPage() {
             Discovery
           </span>
 
-          <h1 className="text-4xl sm:text-5xl lg:text-[60px] font-normal tracking-tight leading-[1.12] bg-gradient-to-r from-[#0e172c] to-[#0f269a] bg-clip-text text-transparent max-w-3xl font-sans py-2">
-            A modern data & compute agent for biotech R&D.
+          <h1 className="text-4xl sm:text-5xl lg:text-[50px] font-normal tracking-tight leading-[1.12] bg-gradient-to-r from-[#0e172c] to-[#0f269a] bg-clip-text text-transparent max-w-4xl font-sans py-2">
+            From Years to Weeks: The Genesys Quantis Platform Accelerating the Future of Drug Discovery.
           </h1>
 
-          <p className="text-slate-600 text-lg sm:text-xl max-w-2xl leading-relaxed">
-            Hundreds of biotechs use GenQuantaa to make data analysis faster, cheaper, more accessible, and instantly accelerate their R&D milestones.
+          <p className="text-slate-600 text-lg sm:text-xl max-w-2xl leading-relaxed font-light">
+            Log in now to transform insights into breakthroughs.
           </p>
 
-          <form onSubmit={handleContactSubmit} className="flex flex-col sm:flex-row items-center gap-4 pt-4">
+          <form onSubmit={handleContactSubmit} className="flex flex-col sm:flex-row sm:flex-wrap items-center gap-4 pt-4">
             <input
               type="email"
               placeholder="Enter your work email..."
@@ -875,16 +875,22 @@ export default function LandingPage() {
             />
             <button
               type="submit"
-              className="w-full sm:w-auto px-8 py-3.5 rounded-lg font-bold text-white bg-[#0f269a] hover:bg-[#0a1a72] transition-colors text-sm shadow-md"
+              className="w-full sm:w-auto px-8 py-3.5 rounded-2xl text-sm font-semibold text-white bg-[#0f269a] hover:bg-[#0a1a72] transition-all shadow-md cursor-pointer whitespace-nowrap"
             >
-              Request Demo
+              Request a Demo
             </button>
             <Link
               to="/discovery-solution"
-              className="w-full sm:w-auto px-8 py-3.5 rounded-lg font-bold text-[#0f269a] bg-[#0f269a]/10 hover:bg-[#0f269a]/20 transition-colors text-sm shadow-md flex items-center justify-center"
+              className="w-full sm:w-auto px-8 py-3.5 rounded-2xl text-sm font-semibold text-[#0f269a] border border-slate-200 bg-white hover:bg-slate-50 transition-all shadow-sm flex items-center justify-center cursor-pointer whitespace-nowrap"
             >
-              explore discovery solution
+              Explore Discovery Solution
             </Link>
+            <a
+              href="https://www.genesysquantis.com/templates/login.html"
+              className="w-full sm:w-auto px-8 py-3.5 rounded-2xl text-sm font-semibold border border-slate-200 text-[#0f269a] bg-white hover:bg-slate-50 shadow-sm transition-all flex items-center justify-center cursor-pointer whitespace-nowrap"
+            >
+              Sign up to Discovery Platform
+            </a>
           </form>
 
           {isSubmitted && (
@@ -1576,7 +1582,7 @@ export default function LandingPage() {
                 Secure and private in your own cloud environment.
               </h2>
               <p className="text-slate-400 text-sm leading-relaxed max-w-2xl">
-                Keep ownership and privacy over your data on Amazon s3 with 99.999999999% (11 9s) of data durability. GenQuantaa helps you save months and become compliant on day one with the latest regulations, standards, and industry frameworks such as SOC-2 Type II and HIPAA. Contact us at <a href="mailto:support@Genquantaa.com" className="text-blue-400 font-semibold underline hover:text-blue-300 transition-colors">support@Genquantaa.com</a>.
+                Keep ownership and privacy over your data on Amazon s3 with 99.999999999% (11 9s) of data durability. GenQuantaa helps you save months and become compliant on day one with the latest regulations, standards, and industry frameworks such as SOC-2 Type II and HIPAA. Contact us at <a href="mailto:support@genquantaa.com" className="text-blue-400 font-semibold underline hover:text-blue-300 transition-colors">support@genquantaa.com</a>.
               </p>
             </div>
 

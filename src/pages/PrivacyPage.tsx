@@ -44,7 +44,7 @@ export default function PrivacyPage() {
               </h4>
               <p className="text-xs text-slate-300">
                 If you believe our privacy policy has been violated or have any concerns, please send an email to{' '}
-                <a href="mailto:support@Genquantaa.com" className="text-blue-400 hover:underline font-medium">support@Genquantaa.com</a>.
+                <a href="mailto:support@genquantaa.com" className="text-blue-400 hover:underline font-medium">support@genquantaa.com</a>.
               </p>
             </div>
           </div>
@@ -82,7 +82,7 @@ export default function PrivacyPage() {
             <h3 className="text-lg font-bold text-white">Correcting / Updating / Deleting / Deactivating Personal Information</h3>
             <p>
               If a user's personally identifiable information changes (such as zip code, phone, email or postal address), or if a user no longer desires our service, we provide a way to correct, update, or remove/deactivate that user's personally identifiable information. This can also be done by sending an email to{' '}
-              <a href="mailto:support@Genquantaa.com" className="text-blue-400 hover:underline">support@Genquantaa.com</a>.
+              <a href="mailto:support@genquantaa.com" className="text-blue-400 hover:underline">support@genquantaa.com</a>.
               {' '}We will review and respond in accordance with applicable data protection requirements. Some information may need to be retained for legal or operational purposes.
             </p>
           </div>
@@ -120,7 +120,7 @@ export default function PrivacyPage() {
 
             <p>
               We use third-party tools, such as Leadfeeder, to help identify business visitors to our website based on IP addresses and linked publicly available business information. These tools may also use first-party cookies or process domain information submitted through forms to support and improve our services. For more information, including available opt-out options, please email us at{' '}
-              <a href="mailto:support@Genquantaa.com" className="text-blue-400 hover:underline">support@Genquantaa.com</a>.
+              <a href="mailto:support@genquantaa.com" className="text-blue-400 hover:underline">support@genquantaa.com</a>.
             </p>
 
             <p>
@@ -137,7 +137,7 @@ export default function PrivacyPage() {
             <h3 className="text-lg font-bold text-white">Contacting the Web Site</h3>
             <p>
               If you have any questions about this privacy statement, the practices of this site, or your dealings with this website, you can contact us at{' '}
-              <a href="mailto:support@Genquantaa.com" className="text-blue-400 hover:underline font-medium">support@Genquantaa.com</a>.
+              <a href="mailto:support@genquantaa.com" className="text-blue-400 hover:underline font-medium">support@genquantaa.com</a>.
             </p>
           </div>
 

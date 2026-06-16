@@ -10,7 +10,6 @@ import VirtualScreeningPage from './pages/VirtualScreeningPage';
 import LeadOptimizationPage from './pages/LeadOptimizationPage';
 import WetLabValidationPage from './pages/WetLabValidationPage';
 import DigitalTwinPage from './pages/DigitalTwinPage';
-import DrugDevelopmentPage from './pages/DrugDevelopmentPage';
 import ServicesPage from './pages/ServicesPage';
 import AboutPage from './pages/AboutPage';
 import PrivacyPage from './pages/PrivacyPage';
@@ -19,7 +18,7 @@ import CookiesPage from './pages/CookiesPage';
 import BiologicsDiscoveryPage from './pages/BiologicsDiscoveryPage';
 import ChemistryQuantisPage from './pages/ChemistryQuantisPage';
 import WallahGPTPage from './pages/WallahGPTPage';
-import Services1Page from './pages/Services1Page';
+
 
 function ScrollToTop() {
   const { pathname, hash } = useLocation();
@@ -57,8 +56,8 @@ export default function App() {
         <Route path="/lead-optimization" element={<LeadOptimizationPage />} />
         <Route path="/wet-lab" element={<WetLabValidationPage />} />
         <Route path="/digital-twin" element={<DigitalTwinPage />} />
-        <Route path="/drug-development" element={<Navigate to="/services-2" replace />} />
-        <Route path="/services-2" element={<DrugDevelopmentPage />} />
+        <Route path="/drug-development" element={<Navigate to="/services" replace />} />
+        <Route path="/services-2" element={<Navigate to="/services" replace />} />
         <Route path="/services" element={<ServicesPage />} />
         <Route path="/about" element={<Navigate to="/company" replace />} />
         <Route path="/company" element={<AboutPage />} />
@@ -68,7 +67,7 @@ export default function App() {
         <Route path="/discovery-solution" element={<BiologicsDiscoveryPage />} />
         <Route path="/chemistry-solution" element={<ChemistryQuantisPage />} />
         <Route path="/gpt-solutions" element={<WallahGPTPage />} />
-        <Route path="/services-1" element={<Services1Page />} />
+        <Route path="/services-1" element={<Navigate to="/services" replace />} />
       </Routes>
     </BrowserRouter>
   );

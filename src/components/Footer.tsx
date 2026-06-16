@@ -22,18 +22,39 @@ export default function Footer() {
           {/* Brand & Tagline */}
           <div className="md:col-span-8 space-y-4">
             <div className="flex items-center gap-3">
-              <img src="/logo.png" alt="GENQUANTAA Logo" className="h-14 w-auto shrink-0 object-contain scale-[1.8] origin-left" />
+              <img src="/logo.png" alt="GENQUANTAA Logo" className="h-10 w-auto object-contain" />
             </div>
             <div>
               <div className="font-extrabold text-sm font-mono text-white tracking-wider">GENQUANTAA</div>
-              <div className="text-[10px] text-slate-500 mt-1">© 2026 ZEROKOST INC. ALL RIGHTS RESERVED.</div>
+              <div className="text-[10px] text-slate-500 mt-0.5">© 2026 ZEROKOST INC. ALL RIGHTS RESERVED.</div>
+              <div className="text-[10px] text-slate-500 mt-0.5 font-mono">
+                ZEROKOST HEALTHCARE PRIVATE LIMITED (CIN: U46497TS2023PTC172499)
+              </div>
             </div>
-            <div className="pt-2">
+
+            {/* Contact Info */}
+            <div className="flex flex-wrap gap-4 text-xs text-slate-400">
+              <a href="tel:+917036955133" className="flex items-center gap-1.5 hover:text-white transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" className="w-3.5 h-3.5 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                </svg>
+                +91 7036955133
+              </a>
+              <a href="mailto:connect@genquantaa.com" className="flex items-center gap-1.5 hover:text-white transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" className="w-3.5 h-3.5 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+                connect@genquantaa.com
+              </a>
+            </div>
+
+            <div className="pt-1">
               <span className="inline-block px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-[10px] font-bold text-blue-400 tracking-wider uppercase">
                 Emerging AI StartUp for Enterprise Grade solutions
               </span>
             </div>
           </div>
+
 
           {/* Quick Links */}
           <div className="md:col-span-4 space-y-3">

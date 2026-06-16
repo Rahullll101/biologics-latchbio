@@ -1,0 +1,268 @@
+﻿diff --git a/src/components/Navbar.tsx b/src/components/Navbar.tsx
+index 3cdff01..d25f0d0 100644
+--- a/src/components/Navbar.tsx
++++ b/src/components/Navbar.tsx
+@@ -29,7 +29,7 @@ export default function Navbar() {
+   const [isMenuOpen, setIsMenuOpen] = useState(false);
+   const [hoveredLink, setHoveredLink] = useState<string | null>(null);
+   const hoverTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+-  const [activeSolutionTab, setActiveSolutionTab] = useState<'clinical' | 'quality' | 'data'>('clinical');
++  const [activeSolutionTab, setActiveSolutionTab] = useState<'clinical' | 'quality' | 'data' | 'market-access' | 'rnd'>('clinical');
+ 
+   const location = useLocation();
+   const isSolutionsPath = location.pathname === '/solutions' || location.hash === '#our-solutions';
+@@ -323,10 +323,10 @@ export default function Navbar() {
+       }
+     },
+     'services-2': {
+-      category: 'Services 2',
++      category: 'Drug Development Services',
+       title: 'Model-Informed Development',
+       desc: 'Model-informed drug development, GLP toxicology protocols, DMPK calculations, and global regulatory filing strategy.',
+-      href: '/services-2',
++      href: '/services#services-2',
+       discoverLabel: 'Review Services',
+       items: [
+         {
+@@ -354,7 +354,7 @@ export default function Navbar() {
+         title: 'GLP Safety & Toxicology',
+         desc: 'Ensure safety parameters meet FDA, EMA, and PMDA requirements with experts.',
+         image: '/screenshots/validate_wetlab.png',
+-        href: '/services-2',
++        href: '/services#services-2',
+         linkLabel: 'Submit Service Inquiry'
+       }
+     },
+@@ -366,28 +366,28 @@ export default function Navbar() {
+       discoverLabel: 'Explore Services',
+       items: [
+         {
+-          title: 'Services 1',
++          title: 'Informatics & Data Analytics',
+           desc: 'Next-generation computational engines, AI design, and custom workflow pipelines.',
+           icon: Cpu,
+-          href: '/services-1'
++          href: '/services#services-1'
+         },
+         {
+-          title: 'Services 2',
++          title: 'Drug Development Services',
+           desc: 'Strategic translation, safety toxicology, CMC formulation, and clinical pharmacology.',
+           icon: Compass,
+-          href: '/services-2'
++          href: '/services#services-2'
+         },
+         {
+           title: 'Regulatory Affairs Strategy',
+           desc: 'Global agency meeting support and eCTD submission packages compilation.',
+           icon: ShieldCheck,
+-          href: '/services-2'
++          href: '/services#services-2'
+         },
+         {
+           title: 'Due Diligence & Evaluation',
+           desc: 'Independent asset risk profiling, scorecards, and start-up valuations.',
+           icon: Award,
+-          href: '/services-2'
++          href: '/services#services-2'
+         }
+       ],
+       featured: {
+@@ -433,9 +433,10 @@ export default function Navbar() {
+       featured: {
+         title: 'Valued Partnerships',
+         desc: 'Collaborate with leading life science teams, including Microsoft, Cura Quantis, and GenQuantaa Robotics.',
+-        image: '/scientist_portrait.png',
++        image: '/Dr. Srimadhurmayi Poluri.png',
+         href: '/company',
+-        linkLabel: 'Read Success Stories'
++        linkLabel: 'Read Success Stories',
++        objectFit: 'contain'
+       }
+     }
+   };
+@@ -446,8 +447,8 @@ export default function Navbar() {
+       <header className="w-full bg-white py-4 px-4 sm:px-8 flex items-center justify-between relative">
+         <div className="flex items-center gap-8">
+           {/* Logo */}
+-          <Link to="/home" className="flex items-center group cursor-pointer w-[185px] shrink-0">
+-            <img src="/logo.png" alt="GENQUANTAA Logo" className="h-12 w-auto shrink-0 object-contain scale-[2.2] origin-left" />
++          <Link to="/home" className="flex items-center group cursor-pointer shrink-0">
++            <img src="/logo.png" alt="GENQUANTAA Logo" className="h-10 w-auto object-contain" />
+           </Link>
+ 
+           <nav className="hidden lg:flex items-center gap-6">
+@@ -524,16 +525,7 @@ export default function Navbar() {
+           </nav>
+         </div>
+ 
+-        {/* Desktop login / signup */}
+-        <div className="hidden lg:flex items-center gap-4">
+-          <a href="https://www.genesysquantis.com/templates/login.html" className="text-sm font-semibold text-slate-600 hover:text-[#0f269a] transition-colors">Log In</a>
+-          <a
+-            href="https://www.genesysquantis.com/templates/login.html"
+-            className="px-6 py-2.5 rounded-full text-sm font-bold text-[#0f269a] border border-[#0f269a] hover:bg-[#0f269a]/5 active:scale-98 transition-all"
+-          >
+-            Sign Up
+-          </a>
+-        </div>
++
+ 
+         {/* Mobile menu button (hamburger menu) */}
+         <div className="lg:hidden flex items-center">
+@@ -565,7 +557,9 @@ export default function Navbar() {
+                     {[
+                       { id: 'clinical', label: 'Clinical' },
+                       { id: 'quality', label: 'Quality' },
+-                      { id: 'data', label: 'Data' }
++                      { id: 'data', label: 'Data' },
++                      { id: 'market-access', label: 'Market Access & Commercial' },
++                      { id: 'rnd', label: 'R&D' }
+                     ].map((tab) => (
+                       <div
+                         key={tab.id}
+@@ -590,7 +584,9 @@ export default function Navbar() {
+                           {
+                             clinical: 'GENQUANTAA DEVELOPMENT CLOUD',
+                             quality: 'GENQUANTAA QUALITY CLOUD',
+-                            data: 'GENQUANTAA DATA CLOUD'
++                            data: 'GENQUANTAA DATA CLOUD',
++                            'market-access': 'GENQUANTAA COMMERCIAL CLOUD',
++                            rnd: 'GENQUANTAA R&D CLOUD'
+                           }[activeSolutionTab]
+                         }
+                       </span>
+@@ -599,7 +595,9 @@ export default function Navbar() {
+                           {
+                             clinical: 'GenQuantaa Clinical Platform',
+                             quality: 'GenQuantaa Quality Platform',
+-                            data: 'GenQuantaa Data Platform'
++                            data: 'GenQuantaa Data Platform',
++                            'market-access': 'GenQuantaa Market Access Platform',
++                            rnd: 'GenQuantaa R&D Platform'
+                           }[activeSolutionTab]
+                         }
+                       </h3>
+@@ -727,8 +725,84 @@ export default function Navbar() {
+                             </h4>
+                             <div className="space-y-4">
+                               {[
+-                               { title: 'Services 1', desc: 'Next-generation computational engines, AI design, and custom workflow pipelines', href: '/services-1', icon: Cpu },
+-                                { title: 'Services 2', desc: 'Strategic translation, safety toxicology, CMC formulation, and clinical pharmacology', href: '/services-2', icon: Compass }
++                               { title: 'Informatics & Data Analytics', desc: 'Next-generation computational engines, AI design, and custom workflow pipelines', href: '/services#services-1', icon: Cpu },
++                                { title: 'Drug Development Services', desc: 'Strategic translation, safety toxicology, CMC formulation, and clinical pharmacology', href: '/services#services-2', icon: Compass }
++                              ].map((item, idx) => {
++                                const Icon = item.icon;
++                                return (
++                                  <Link
++                                    key={idx}
++                                    to={item.href}
++                                    onClick={handleMouseLeave}
++                                    className="group flex gap-3 hover:bg-slate-800/20 p-2.5 -m-2.5 rounded-xl transition-all"
++                                  >
++                                    <div className="shrink-0 w-8 h-8 rounded-lg bg-slate-800/50 flex items-center justify-center text-slate-400 group-hover:bg-[#0f269a]/20 group-hover:text-blue-400 transition-colors">
++                                      <Icon size={16} />
++                                    </div>
++                                    <div>
++                                      <h5 className="text-xs font-bold text-slate-200 group-hover:text-white transition-colors">
++                                        {item.title}
++                                      </h5>
++                                      <p className="text-[10px] text-slate-500 group-hover:text-slate-400 leading-normal mt-1 transition-colors">
++                                        {item.desc}
++                                      </p>
++                                    </div>
++                                  </Link>
++                                );
++                              })}
++                            </div>
++                          </div>
++                        </div>
++                      )}
++
++                      {activeSolutionTab === 'market-access' && (
++                        <div className="grid grid-cols-2 gap-x-6 gap-y-4">
++                          {[
++                            { title: 'Franchise360Γäó + Command CenterΓäó', desc: 'Executive performance dashboard.', href: '/solutions', icon: BarChart },
++                            { title: 'MarketMindΓäó + EngageAIΓäó', desc: 'Marketing and engagement intelligence.', href: '/solutions', icon: Sparkles },
++                            { title: 'SalesPilotΓäó + ForecastAIΓäó', desc: 'Sales planning and forecasting.', href: '/solutions', icon: Target },
++                            { title: 'AgentStudioΓäó + InsightLensΓäó', desc: 'AI agents and business insights.', href: '/solutions', icon: Brain },
++                            { title: 'InsightLensΓäó + ForecastAIΓäó', desc: 'Analytics and predictive planning.', href: '/solutions', icon: Database },
++                            { title: 'SalesPilotΓäó + ElevateΓäó', desc: 'Sales intelligence and learning.', href: '/solutions', icon: BookOpen },
++                            { title: 'Franchise360Γäó + Command CenterΓäó', desc: 'Commercial operations control tower.', href: '/solutions', icon: Layers }
++                          ].map((item, idx) => {
++                            const Icon = item.icon;
++                            return (
++                              <Link
++                                key={idx}
++                                to={item.href}
++                                onClick={handleMouseLeave}
++                                className="group flex gap-3 hover:bg-slate-800/20 p-2.5 -m-2.5 rounded-xl transition-all"
++                              >
++                                <div className="shrink-0 w-8 h-8 rounded-lg bg-slate-800/50 flex items-center justify-center text-slate-400 group-hover:bg-[#0f269a]/20 group-hover:text-blue-400 transition-colors">
++                                  <Icon size={16} />
++                                </div>
++                                <div>
++                                  <h5 className="text-xs font-bold text-slate-200 group-hover:text-white transition-colors">
++                                    {item.title}
++                                  </h5>
++                                  <p className="text-[10px] text-slate-500 group-hover:text-slate-400 leading-normal mt-1 transition-colors">
++                                    {item.desc}
++                                  </p>
++                                </div>
++                              </Link>
++                            );
++                          })}
++                        </div>
++                      )}
++
++                      {activeSolutionTab === 'rnd' && (
++                        <div className="grid grid-cols-2 gap-x-12">
++                          <div>
++                            <h4 className="text-xs font-bold text-white uppercase tracking-wider mb-4 border-b border-slate-800 pb-2">
++                              Research & Development
++                            </h4>
++                            <div className="space-y-4">
++                              {[
++                                { title: 'GQ Chemistry', desc: 'AI-driven synthesis pathway planning and ligand binding prediction', href: '/chemistry', icon: FlaskConical },
++                                { title: 'GQ GPT', desc: 'Senescence aging clocks, synthetic omics generators, and simulated screenings', href: '/gpt', icon: Brain },
++                                { title: 'Digital Twin', desc: 'Precision oncology segmentation, longitudinal RECIST tracking, and risk models', href: '/digital-twin', icon: Layers },
++                                { title: 'Discovery', desc: 'Unified data ingestion & scientific compute engine for automated genomics', href: '/discovery', icon: Compass }
+                               ].map((item, idx) => {
+                                 const Icon = item.icon;
+                                 return (
+@@ -858,7 +932,9 @@ export default function Navbar() {
+                           <img
+                             src={menuData.featured.image}
+                             alt={menuData.featured.title}
+-                            className="w-full h-full object-cover group-hover/img:scale-105 transition-transform duration-500"
++                            className={`w-full h-full ${
++                              menuData.featured.objectFit === 'contain' ? 'object-contain p-2' : 'object-cover'
++                            } group-hover/img:scale-105 transition-transform duration-500`}
+                           />
+                         </div>
+                         <div>
+@@ -988,24 +1064,7 @@ export default function Navbar() {
+               Company
+             </Link>
+ 
+-            <div className="h-px bg-slate-100 my-2" />
+ 
+-            <div className="flex flex-col gap-2 px-3">
+-              <a
+-                href="https://www.genesysquantis.com/templates/login.html"
+-                onClick={() => setIsMenuOpen(false)}
+-                className="text-center text-sm font-semibold text-slate-600 hover:text-[#0f269a] py-2 rounded-lg hover:bg-slate-50 transition-colors"
+-              >
+-                Log In
+-              </a>
+-              <a
+-                href="https://www.genesysquantis.com/templates/login.html"
+-                onClick={() => setIsMenuOpen(false)}
+-                className="text-center px-6 py-2.5 rounded-full text-sm font-bold text-[#0f269a] border border-[#0f269a] hover:bg-[#0f269a]/5 active:scale-98 transition-all"
+-              >
+-                Sign Up
+-              </a>
+-            </div>
+           </nav>
+         </div>
+       )}

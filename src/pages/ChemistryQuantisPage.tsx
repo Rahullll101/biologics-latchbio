@@ -399,15 +399,15 @@ export const ChemistryQuantisPage = () => {
 
           <div className="flex flex-col sm:flex-row items-center gap-4 pt-4">
             <a
-              href="mailto:support@Genquantaa.com"
-              className="w-full sm:w-auto px-8 py-3.5 rounded-lg font-bold text-white bg-[#0f269a] hover:bg-[#0a1a72] transition-all text-sm shadow-md text-center flex items-center justify-center gap-2"
+              href="mailto:support@genquantaa.com"
+              className="w-full sm:w-auto px-8 py-3.5 rounded-2xl text-sm font-semibold text-white bg-[#0f269a] hover:bg-[#0a1a72] transition-all shadow-md text-center flex items-center justify-center gap-2 cursor-pointer whitespace-nowrap"
             >
               <span>Request Demo</span>
               <ArrowRight size={16} />
             </a>
             <Link
               to="/solutions"
-              className="w-full sm:w-auto px-8 py-3.5 rounded-lg font-bold text-[#0f269a] bg-[#0f269a]/10 hover:bg-[#0f269a]/20 transition-colors text-sm shadow-md text-center"
+              className="w-full sm:w-auto px-8 py-3.5 rounded-2xl text-sm font-semibold text-[#0f269a] border border-slate-200 bg-white hover:bg-slate-50 transition-all shadow-sm text-center cursor-pointer whitespace-nowrap"
             >
               View Solutions
             </Link>
@@ -574,7 +574,7 @@ export const ChemistryQuantisPage = () => {
               </div>
 
               <div className="flex gap-4 pt-4">
-                  <a href="mailto:support@Genquantaa.com" className="px-8 py-3 bg-blue-600 text-white rounded-full font-bold shadow-lg hover:bg-blue-700 transition-all inline-block text-sm">Request Demo</a>
+                  <a href="mailto:support@genquantaa.com" className="px-8 py-3 bg-blue-600 text-white rounded-full font-bold shadow-lg hover:bg-blue-700 transition-all inline-block text-sm">Request Demo</a>
                  <button className="px-8 py-3 bg-white text-blue-600 border border-blue-600/20 rounded-full font-bold hover:bg-slate-50 transition-all text-sm">Scientific PDF</button>
               </div>
             </div>

@@ -72,7 +72,7 @@ export default function TermsPage() {
       bullets: [
         <span key="billing-email">
           Vendor must submit invoices containing the Purchase Order number and Client contact details. Invoices should be sent to the email address specified in the Purchase Order:{' '}
-          <a href="mailto:support@Genquantaa.com" className="text-blue-400 hover:underline font-medium">support@Genquantaa.com</a>.
+          <a href="mailto:support@genquantaa.com" className="text-blue-400 hover:underline font-medium">support@genquantaa.com</a>.
         </span>,
         "Invoices must be in the currency specified in the Purchase Order.",
         "Client will pay correct invoices within 60 days of receipt, subject to any withholding tax.",
@@ -165,7 +165,7 @@ export default function TermsPage() {
               </h4>
               <p className="text-xs text-slate-300">
                 For questions or requests regarding these General Terms of Business, please contact our administrative team at{' '}
-                <a href="mailto:support@Genquantaa.com" className="text-blue-400 hover:underline font-medium">support@Genquantaa.com</a>.
+                <a href="mailto:support@genquantaa.com" className="text-blue-400 hover:underline font-medium">support@genquantaa.com</a>.
               </p>
             </div>
           </div>

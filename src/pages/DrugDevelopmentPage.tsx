@@ -635,7 +635,7 @@ export default function DrugDevelopmentPage() {
                     <input
                       type="email"
                       required
-                      placeholder="support@Genquantaa.com"
+                      placeholder="support@genquantaa.com"
                       value={proposalEmail}
                       onChange={(e) => setProposalEmail(e.target.value)}
                       className="w-full px-4 py-3 rounded-lg border border-white/10 text-slate-300 bg-[#0d1527] text-xs focus:outline-none focus:border-[#0f269a] focus:ring-1 focus:ring-[#0f269a]"

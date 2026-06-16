@@ -5,6 +5,7 @@ import {
   useInView,
   useScroll,
   useTransform,
+  MotionValue,
 } from 'framer-motion';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Autoplay } from 'swiper/modules';
@@ -25,12 +26,10 @@ import {
   ShieldCheck,
   Users,
   Globe,
-  Award,
   CheckCircle,
   Send,
   Quote,
   Briefcase,
-  TrendingUp,
   Zap,
   Lock,
   Cpu,
@@ -74,7 +73,7 @@ const phases = [
     description:
       'Leverage PBPK modelling, ADMET prediction, and GLP toxicology protocol design to build a comprehensive safety profile — and a compelling IND package for regulators.',
     cta: 'View Preclinical Services',
-    ctaHref: '/services-2',
+    ctaHref: '/services#services-2',
     secondaryCta: 'Download Factsheet',
     links: ['ADMET Intelligence', 'PBPK Modelling', 'GLP Toxicology'],
     image: '/sticky_slide.png',
@@ -104,7 +103,7 @@ const phases = [
     description:
       'From Phase III statistical modelling to integrated clinical study reports, our regulatory experts and biosimulation scientists work in lockstep to deliver submission-ready evidence packages.',
     cta: 'Plan Your Phase III',
-    ctaHref: '/services-2',
+    ctaHref: '/services#services-2',
     secondaryCta: 'View Submission Services',
     links: ['QSP Modelling', 'E2R Analysis', 'Regulatory Writing'],
     image: '/sticky_slide.png',
@@ -117,9 +116,9 @@ const phases = [
     category: 'FDA · EMA · PMDA',
     headline: 'Navigate Complex Filings with Expert Precision.',
     description:
-      'Our global regulatory science team provides strategic consulting, benefit-risk framework development, and submission writing for IND, NDA, MAA, and JNDA across 62 countries.',
+      'Our global regulatory science team provides strategic consulting, benefit-risk framework development, and submission writing for IND, NDA, MAA, and JNDA — We Support Globally.',
     cta: 'Explore Regulatory Science',
-    ctaHref: '/services-2',
+    ctaHref: '/services#services-2',
     secondaryCta: 'View Global Reach',
     links: ['IND / NDA Strategy', 'EMA / PMDA Filings', 'Benefit-Risk'],
     image: '/sticky_slide.png',
@@ -132,7 +131,7 @@ const phases = [
     category: 'HTA & Value Evidence',
     headline: 'Demonstrate Value to Payers and HTA Bodies.',
     description:
-      'Build robust health economics models, real-world evidence strategies, and value dossiers that persuade payers in the EU5, US, Japan, and emerging markets.',
+      'Build robust health economics models, real-world evidence strategies, and value dossiers that persuade payers globally — We Support Globally.',
     cta: 'Explore Market Access',
     ctaHref: '/solutions',
     secondaryCta: 'See HEOR Capabilities',
@@ -147,7 +146,7 @@ const phases = [
     category: 'Leadership & Consulting',
     headline: 'Strategic Intelligence for Executive Decision-Making.',
     description:
-      'From portfolio prioritisation to due diligence and licensing strategy, GenQuantaa\'s senior advisors bring 30+ years of pharma leadership to guide your most critical business decisions.',
+      'From portfolio prioritisation to due diligence and licensing strategy, GenQuantaa\'s senior advisors bring 3+ years of pharma leadership to guide your most critical business decisions.',
     cta: 'Talk to an Advisor',
     ctaHref: '/solutions',
     secondaryCta: 'View Consulting Services',
@@ -162,11 +161,11 @@ const phases = [
 const insights = [
   {
     tag: 'Webinar',
-    date: 'June 18, 2026',
+    date: 'June 5, 2026',
     title: 'Advancing PBPK Modelling for Paediatric Oncology Drug Development',
     excerpt: 'Explore how population-based physiological modelling is reshaping paediatric dosing strategies and bridging study design across age cohorts.',
     image: '/screenshots/target_explorer_info.png',
-    href: '/services-2',
+    href: '/services#services-2',
     tagColor: '#3b82f6',
   },
   {
@@ -192,17 +191,10 @@ const insights = [
 // ─── SECTION 3: Capabilities ────────────────────────────────────────────────
 const capabilities = [
   {
-    icon: Brain,
-    title: 'Biosimulation & MIDD',
-    desc: 'PBPK, PopPK/PD, and QSP models accelerating dose selection, trial design, and label negotiation.',
-    href: '/digital-twin',
-    color: '#3b82f6',
-  },
-  {
     icon: FlaskConical,
     title: 'Regulatory Science',
     desc: 'Global regulatory strategy, submission writing, and benefit-risk consulting for FDA, EMA, and PMDA.',
-    href: '/services-2',
+    href: '/services#services-2',
     color: '#8b5cf6',
   },
   {
@@ -211,6 +203,13 @@ const capabilities = [
     desc: 'Target identification, virtual screening, and generative chemistry AI to accelerate lead generation.',
     href: '/chemistry',
     color: '#10b981',
+  },
+  {
+    icon: Brain,
+    title: 'Biosimulation & MIDD',
+    desc: 'PBPK, PopPK/PD, and QSP models accelerating dose selection, trial design, and label negotiation.',
+    href: '/services#services-2',
+    color: '#3b82f6',
   },
   {
     icon: BarChart3,
@@ -224,7 +223,7 @@ const capabilities = [
 // ─── SECTION 6: Case studies ─────────────────────────────────────────────────
 const caseStudies = [
   {
-    company: 'Biohaven',
+    company: 'Top 10 Global Biopharma',
     tag: 'Rare Disease · Phase III',
     title: 'PBPK-Guided Dose Bridging Supports Paediatric NDA Approval',
     summary:
@@ -234,7 +233,7 @@ const caseStudies = [
     color: '#3b82f6',
   },
   {
-    company: 'OncoBridge Sciences',
+    company: 'Leading Oncology Biotech',
     tag: 'Oncology · EMA Submission',
     title: 'Exposure-Response Modelling Secures First-Cycle EMA Approval',
     summary:
@@ -244,23 +243,23 @@ const caseStudies = [
     color: '#10b981',
   },
   {
-    company: 'GenePath Pharma',
+    company: 'EU5 Market Access Partner',
     tag: 'Market Access · EU5',
     title: 'Health Economics Model Secures Reimbursement in 5 EU Markets',
     summary:
-      'A robust cost-effectiveness model and value dossier enabled simultaneous positive HTA decisions across Germany, France, Italy, Spain, and the UK within a single submission cycle.',
-    outcome: 'EU5 reimbursement in one cycle',
+      'A robust cost-effectiveness model and value dossier enabled simultaneous positive HTA decisions across multiple global markets within a single submission cycle.',
+    outcome: 'We Support Globally',
     image: '/screenshots/lead_optimization_results.png',
     color: '#f59e0b',
   },
 ];
 
-// ─── SECTION 5: Metrics ──────────────────────────────────────────────────────
+// ─── SECTION 5: Tech Stack ───────────────────────────────────────────────────
 const metrics = [
-  { value: 500, suffix: '+', label: 'Expert Scientists', icon: Users },
-  { value: 1550, suffix: '+', label: 'Drug Approvals Supported', icon: Award },
-  { value: 90, suffix: '%', label: 'Top 50 Pharma Clients', icon: TrendingUp },
-  { value: 62, suffix: '+', label: 'Countries Served', icon: Globe },
+  { badge: 'Python · PyTorch · TensorFlow', label: 'AI & ML Framework', sublabel: 'Generative models, ADMET prediction & molecular embeddings', icon: Cpu },
+  { badge: 'Kubernetes · Docker · H100 GPU', label: 'Compute Infrastructure', sublabel: 'Scalable cloud-native orchestration with GPU acceleration', icon: Layers },
+  { badge: 'React · FastAPI · REST', label: 'Platform Architecture', sublabel: 'Modern web UI with high-performance scientific APIs', icon: Workflow },
+  { badge: 'PostgreSQL · Redis · pgvector', label: 'Data & Vector Layer', sublabel: 'Structured data, caching, and vector search for molecular science', icon: Database },
 ];
 
 // ─── Animated section wrapper ─────────────────────────────────────────────────
@@ -282,7 +281,30 @@ function FadeUp({ children, delay = 0, className = '' }: { children: React.React
 
 
 
-const PhaseCard = ({ phase, idx, progress, totalCards, isDesktop }: any) => {
+interface PhaseItem {
+  id: string;
+  label: string;
+  category: string;
+  headline: string;
+  description: string;
+  cta: string;
+  ctaHref: string;
+  secondaryCta: string;
+  links: string[];
+  image: string;
+  color: string;
+  accent: string;
+}
+
+interface PhaseCardProps {
+  phase: PhaseItem;
+  idx: number;
+  progress: MotionValue<number>;
+  totalCards: number;
+  isDesktop: boolean;
+}
+
+const PhaseCard = ({ phase, idx, progress, totalCards, isDesktop }: PhaseCardProps) => {
   const isLast = idx === totalCards - 1;
   const startProgress = idx / totalCards;
   const endProgress = (idx + 1) / totalCards;
@@ -377,12 +399,11 @@ const PhaseCard = ({ phase, idx, progress, totalCards, isDesktop }: any) => {
   );
 };
 
+
 // ─── MAIN COMPONENT ───────────────────────────────────────────────────────────
 export default function HomePage() {
   const [formData, setFormData] = useState({ firstName: '', lastName: '', email: '', company: '', role: '', message: '' });
   const [formSubmitted, setFormSubmitted] = useState(false);
-  const metricsRef = useRef(null);
-  const metricsInView = useInView(metricsRef, { once: true, margin: '-100px' });
 
   const containerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
@@ -422,88 +443,83 @@ export default function HomePage() {
       >
 
         <div className="relative z-10 w-full pt-40 pb-20 px-6 max-w-7xl mx-auto text-left">
-          <div className="max-w-5xl space-y-8">
-
-            {/* Badge — matches product page slate pill */}
-            <motion.span
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              className="inline-block px-3 py-1 rounded bg-slate-100 border border-slate-200 text-xs font-semibold text-slate-600"
-            >
-              Platform
-            </motion.span>
-
-            {/* Heading — same style as product page h1 */}
-            <motion.h1
-              initial={{ opacity: 0, y: 24 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.15, duration: 0.7 }}
-              className="text-4xl sm:text-5xl lg:text-[60px] font-normal tracking-tight leading-[1.12] bg-gradient-to-r from-[#0e172c] to-[#0f269a] bg-clip-text text-transparent max-w-4xl font-sans py-2"
-            >
-              Accelerating Life Sciences Innovation with AI-Powered Platforms
-            </motion.h1>
-
-            {/* Subtext */}
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3, duration: 0.7 }}
-              className="text-slate-600 text-lg sm:text-xl max-w-3xl leading-relaxed"
-            >
-              GENQUANTAA empowers pharmaceutical, biotech, and healthcare organizations with Generative AI, unified data platforms, quality management systems, and advanced analytics to accelerate discovery, development, and compliance.
-            </motion.p>
-
-            {/* CTA row */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.45, duration: 0.7 }}
-              className="flex flex-col sm:flex-row items-start sm:items-center gap-4 pt-4"
-            >
-              <a
-                href="#contact-section"
-                className="px-8 py-3.5 rounded-lg font-bold text-white text-sm shadow-md transition-colors cursor-pointer text-center"
-                style={{ background: '#0f269a' }}
-                onMouseEnter={e => (e.currentTarget.style.background = '#0a1a72')}
-                onMouseLeave={e => (e.currentTarget.style.background = '#0f269a')}
+          <div className="space-y-8 mb-16">
+              {/* Badge — matches product page slate pill */}
+              <motion.span
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+                className="inline-block px-3 py-1 rounded bg-slate-100 border border-slate-200 text-xs font-semibold text-slate-600"
               >
-                Request a Demo
-              </a>
-              <a
-                href="#our-solutions"
-                className="px-8 py-3.5 rounded-lg font-bold text-sm shadow-md border border-slate-200 text-slate-700 hover:bg-slate-50 hover:border-slate-300 transition-colors cursor-pointer text-center"
+                Platform
+              </motion.span>
+
+              {/* Heading — same style as product page h1 */}
+              <motion.h1
+                initial={{ opacity: 0, y: 24 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.15, duration: 0.7 }}
+                className="text-4xl sm:text-5xl lg:text-[60px] font-normal tracking-tight leading-[1.12] bg-gradient-to-r from-[#0e172c] to-[#0f269a] bg-clip-text text-transparent max-w-4xl font-sans py-2"
               >
-                Explore Solutions
-              </a>
-            </motion.div>
+                Accelerating Life Sciences Innovation with AI-Powered Platforms
+              </motion.h1>
 
-            {/* Supporting Metrics */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.6, duration: 0.7 }}
-              className="grid grid-cols-2 md:grid-cols-4 gap-4 pt-10 border-t border-slate-200/60"
-            >
-              {[
-                { title: 'AI-Driven Discovery', icon: Sparkles, color: 'text-blue-600 bg-blue-50 border-blue-100' },
-                { title: 'Regulatory-Ready Quality Systems', icon: ShieldCheck, color: 'text-emerald-600 bg-emerald-50 border-emerald-100' },
-                { title: 'Unified Enterprise Data', icon: Database, color: 'text-indigo-600 bg-indigo-50 border-indigo-100' },
-                { title: 'Scalable Cloud Architecture', icon: Cloud, color: 'text-cyan-600 bg-cyan-50 border-cyan-100' },
-              ].map((metric, idx) => {
-                const Icon = metric.icon;
-                return (
-                  <div key={idx} className="flex flex-col p-4 rounded-xl border border-slate-100 bg-slate-50/50 hover:bg-white transition-all duration-300 hover:shadow-md group">
-                    <div className={`w-8 h-8 rounded-lg flex items-center justify-center mb-3 transition-transform group-hover:scale-110 ${metric.color.split(' ').slice(1).join(' ')}`}>
-                      <Icon className={`w-4 h-4 ${metric.color.split(' ')[0]}`} />
-                    </div>
-                    <span className="text-sm font-semibold text-slate-800 leading-snug">{metric.title}</span>
-                  </div>
-                );
-              })}
-            </motion.div>
+              {/* Subtext */}
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3, duration: 0.7 }}
+                className="text-slate-600 text-lg sm:text-xl max-w-3xl leading-relaxed"
+              >
+                GENQUANTAA empowers pharmaceutical, biotech, and healthcare organizations with Generative AI, unified data platforms, quality management systems, and advanced analytics to accelerate discovery, development, and compliance.
+              </motion.p>
 
+              {/* CTA row */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.45, duration: 0.7 }}
+                className="flex flex-col sm:flex-row items-start sm:items-center gap-4 pt-4"
+              >
+                <a
+                  href="#contact-section"
+                  className="w-full sm:w-auto px-8 py-3.5 rounded-2xl text-sm font-semibold bg-[#0f269a] hover:bg-[#0a1a72] text-white shadow-md transition-all cursor-pointer text-center whitespace-nowrap"
+                >
+                  Request a Demo
+                </a>
+                <a
+                  href="#our-solutions"
+                  className="w-full sm:w-auto px-8 py-3.5 rounded-2xl text-sm font-semibold border border-slate-200 text-[#0f269a] bg-white hover:bg-slate-50 transition-all shadow-sm cursor-pointer text-center whitespace-nowrap"
+                >
+                  Explore Solutions
+                </a>
+              </motion.div>
           </div>
+
+          {/* Supporting Metrics */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.6, duration: 0.7 }}
+            className="grid grid-cols-2 md:grid-cols-4 gap-4 pt-10 border-t border-slate-200/60"
+          >
+            {[
+              { title: 'AI-Driven Discovery', icon: Sparkles, color: 'text-blue-600 bg-blue-50 border-blue-100' },
+              { title: 'Regulatory-Ready Quality Systems', icon: ShieldCheck, color: 'text-emerald-600 bg-emerald-50 border-emerald-100' },
+              { title: 'Unified Enterprise Data', icon: Database, color: 'text-indigo-600 bg-indigo-50 border-indigo-100' },
+              { title: 'Scalable Cloud Architecture', icon: Cloud, color: 'text-cyan-600 bg-cyan-50 border-cyan-100' },
+            ].map((metric, idx) => {
+              const Icon = metric.icon;
+              return (
+                <div key={idx} className="flex flex-col p-4 rounded-xl border border-slate-100 bg-slate-50/50 hover:bg-white transition-all duration-300 hover:shadow-md group">
+                  <div className={`w-8 h-8 rounded-lg flex items-center justify-center mb-3 transition-transform group-hover:scale-110 ${metric.color.split(' ').slice(1).join(' ')}`}>
+                    <Icon className={`w-4 h-4 ${metric.color.split(' ')[0]}`} />
+                  </div>
+                  <span className="text-sm font-semibold text-slate-800 leading-snug">{metric.title}</span>
+                </div>
+              );
+            })}
+          </motion.div>
         </div>
       </section>
 
@@ -706,7 +722,7 @@ export default function HomePage() {
                   <span className="text-xs font-bold text-blue-400 uppercase tracking-widest font-mono block mb-3">Latest Insights</span>
                   <h2 className="text-3xl md:text-4xl font-bold text-white">Stay Ahead of the Science</h2>
                 </div>
-                <Link to="/services-2" className="group inline-flex items-center gap-2 text-sm font-bold text-slate-400 hover:text-white transition-colors">
+                <Link to="/services" className="group inline-flex items-center gap-2 text-sm font-bold text-slate-400 hover:text-white transition-colors">
                   View All Resources <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
                 </Link>
               </div>
@@ -824,7 +840,7 @@ export default function HomePage() {
           SECTION 5 — EXPERTISE & EXPERIENCE
       ══════════════════════════════════════════════════════════════════════ */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
-        <div className="bg-gradient-to-br from-[#0c142b] via-[#0b0f19] to-[#05070c] text-white rounded-[32px] border border-white/5 overflow-hidden shadow-[0_0_50px_rgba(0,0,0,0.3)]" ref={metricsRef}>
+        <div className="bg-gradient-to-br from-[#0c142b] via-[#0b0f19] to-[#05070c] text-white rounded-[32px] border border-white/5 overflow-hidden shadow-[0_0_50px_rgba(0,0,0,0.3)]">
           <section className="py-24 px-6 max-w-6xl mx-auto">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
 
@@ -832,7 +848,7 @@ export default function HomePage() {
               <FadeUp>
                 <span className="text-xs font-bold text-blue-400 uppercase tracking-widest font-mono block mb-4">Our Track Record</span>
                 <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
-                  30+ Years of Scientific Excellence
+                  3+ Years of Scientific Excellence
                 </h2>
                 <p className="text-slate-400 text-lg leading-relaxed mb-8">
                   GenQuantaa was founded on a singular vision: accelerate the development of 
@@ -850,24 +866,21 @@ export default function HomePage() {
                 </Link>
               </FadeUp>
 
-              {/* Right — 2×2 metric grid */}
-              <div className="grid grid-cols-2 gap-6">
+              {/* Right — 2×2 tech stack grid */}
+              <div className="grid grid-cols-2 gap-5">
                 {metrics.map((m, idx) => {
                   const Icon = m.icon;
                   return (
                     <FadeUp key={idx} delay={idx * 0.1}>
-                      <div className="rounded-2xl border border-white/5 bg-white/5 p-8 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
-                        <div className="w-10 h-10 rounded-xl bg-blue-500/10 flex items-center justify-center mb-4">
+                      <div className="rounded-2xl border border-white/5 bg-white/5 p-6 shadow-sm hover:shadow-lg hover:border-blue-500/20 hover:-translate-y-1 transition-all duration-300 flex flex-col gap-3">
+                        <div className="w-10 h-10 rounded-xl bg-blue-500/10 flex items-center justify-center shrink-0">
                           <Icon size={20} className="text-blue-400" />
                         </div>
-                        <div className="text-4xl font-bold text-white mb-1">
-                          {metricsInView ? (
-                            <span>{m.value}{m.suffix}</span>
-                          ) : (
-                            <span>0{m.suffix}</span>
-                          )}
+                        <div>
+                          <div className="text-xs font-bold text-blue-400 uppercase tracking-widest font-mono mb-1">{m.label}</div>
+                          <div className="text-sm font-semibold text-white font-mono leading-snug mb-2">{m.badge}</div>
+                          <div className="text-xs text-slate-500 leading-relaxed">{m.sublabel}</div>
                         </div>
-                        <div className="text-sm text-slate-400 font-medium">{m.label}</div>
                       </div>
                     </FadeUp>
                   );
@@ -929,7 +942,7 @@ export default function HomePage() {
                           </div>
                           <div>
                             <div className="text-white font-semibold text-sm">{cs.company}</div>
-                            <Link to="/services-2" className="text-xs text-slate-400 hover:text-white transition-colors">Read full case study →</Link>
+                            <Link to="/services#services-2" className="text-xs text-slate-400 hover:text-white transition-colors">Read full case study →</Link>
                           </div>
                         </div>
                       </div>
@@ -978,20 +991,11 @@ export default function HomePage() {
                 <Quote size={48} className="text-blue-500/30 mb-6" />
 
                 <blockquote className="text-xl md:text-2xl text-white font-light italic leading-relaxed mb-10">
-                  "GenQuantaa's biosimulation platform compressed our Phase II design cycle by 40%. 
-                  Their PBPK expertise gave us the regulatory confidence to file with certainty — 
-                  and we achieved first-cycle FDA approval."
+                  "GenQuantaa is building the next generation of computational drug discovery infrastructure — enabling researchers to transform biological data into therapeutic breakthroughs and accelerate the future of medicine."
                 </blockquote>
 
-                <div className="flex items-center gap-4">
-                  <div className="w-14 h-14 rounded-full bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center font-bold text-white text-lg">
-                    PN
-                  </div>
-                  <div>
-                    <div className="text-white font-bold">Dr. Priya Nair</div>
-                    <div className="text-slate-400 text-sm">VP Clinical Pharmacology, BioNova Therapeutics</div>
-                  </div>
-                  <div className="ml-auto hidden md:flex items-center gap-1">
+                <div className="flex items-center justify-end">
+                  <div className="flex items-center gap-1">
                     {[1,2,3,4,5].map(i => (
                       <span key={i} className="text-blue-400 text-lg">★</span>
                     ))}
@@ -1044,13 +1048,7 @@ export default function HomePage() {
                   icon: Lock,
                   color: '#10b981',
                 },
-                {
-                  title: 'CMMI - 3 and CMMI 5',
-                  tagline: 'Process & Maturity Excellence',
-                  desc: 'Engineered in compliance with Capability Maturity Model Integration standards, ensuring highly predictable and high-quality deliveries.',
-                  icon: Award,
-                  color: '#f59e0b',
-                },
+
                 {
                   title: 'AI First Transformed',
                   tagline: 'Native Scientific AI',
@@ -1174,7 +1172,7 @@ export default function HomePage() {
                     {[
                       { icon: ShieldCheck, text: 'Confidential & secure engagement process', color: '#10b981' },
                       { icon: Users, text: 'Dedicated team of PhDs, pharmacometricians & regulatory scientists', color: '#3b82f6' },
-                      { icon: Globe, text: 'Global coverage across 62+ countries', color: '#8b5cf6' },
+                      { icon: Globe, text: 'Support Globally BioPharma', color: '#8b5cf6' },
                       { icon: Zap, text: 'Rapid response within 24 business hours', color: '#f59e0b' },
                     ].map((item, i) => {
                       const Icon = item.icon;
@@ -1220,7 +1218,7 @@ export default function HomePage() {
                       </div>
 
                       {[
-                        { field: 'email', label: 'Work Email', type: 'email', placeholder: 'support@Genquantaa.com' },
+                        { field: 'email', label: 'Work Email', type: 'email', placeholder: 'support@genquantaa.com' },
                         { field: 'company', label: 'Company', type: 'text', placeholder: 'Acme Therapeutics' },
                         { field: 'role', label: 'Your Role', type: 'text', placeholder: 'VP Clinical Pharmacology' },
                       ].map(({ field, label, type, placeholder }) => (

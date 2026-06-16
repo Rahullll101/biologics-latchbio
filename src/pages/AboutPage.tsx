@@ -163,7 +163,7 @@ export default function AboutPage() {
           {/* CTA row — ServicesPage style */}
           <div className="flex flex-wrap gap-4 pt-2">
             <a
-              href="mailto:support@Genquantaa.com"
+              href="mailto:support@genquantaa.com"
               className="px-8 py-3.5 rounded-lg text-xs font-bold font-mono uppercase tracking-wider bg-[#0f269a] hover:bg-[#0a1a72] text-white shadow-sm transition-all"
             >
               Connect With Us
@@ -467,7 +467,7 @@ export default function AboutPage() {
                 Explore Services <ArrowRight className="w-3.5 h-3.5" />
               </Link>
               <a
-                href="mailto:support@Genquantaa.com"
+                href="mailto:support@genquantaa.com"
                 className="px-8 py-3.5 rounded-lg text-xs font-bold font-mono uppercase tracking-wider border border-white/20 text-slate-300 hover:bg-white/5 transition-all"
               >
                 Get in Touch

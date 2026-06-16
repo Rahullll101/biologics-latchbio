@@ -125,14 +125,14 @@ export default function DigitalTwinPage() {
               />
               <button
                 type="submit"
-                className="w-full sm:w-auto px-8 py-3.5 rounded-lg font-bold text-white bg-[#0f269a] hover:bg-[#0a1a72] transition-colors text-sm shadow-md"
+                className="w-full sm:w-auto px-8 py-3.5 rounded-2xl text-sm font-semibold text-white bg-[#0f269a] hover:bg-[#0a1a72] transition-all shadow-md cursor-pointer whitespace-nowrap"
               >
                 Request Demo
               </button>
             </form>
             <a
               href="#transform"
-              className="w-full sm:w-auto px-8 py-3.5 rounded-lg font-bold text-[#0f269a] bg-[#0f269a]/10 hover:bg-[#0f269a]/20 transition-colors text-sm shadow-md flex items-center justify-center"
+              className="w-full sm:w-auto px-8 py-3.5 rounded-2xl text-sm font-semibold text-[#0f269a] border border-slate-200 bg-white hover:bg-slate-50 transition-all shadow-sm flex items-center justify-center cursor-pointer whitespace-nowrap"
             >
               Explore Platform
             </a>
@@ -1363,7 +1363,7 @@ export default function DigitalTwinPage() {
           />
           <button 
             onClick={() => alert('Thank you! Our precision oncology team will contact you shortly.')}
-            className="w-full sm:w-auto px-8 py-3.5 rounded-lg font-bold text-white bg-[#0f269a] hover:bg-[#0a1a72] transition-colors text-sm shadow-md whitespace-nowrap"
+            className="w-full sm:w-auto px-8 py-3.5 rounded-xl text-sm font-semibold text-white bg-[#0f269a] hover:bg-[#0a1a72] transition-all shadow-md whitespace-nowrap cursor-pointer"
           >
             Schedule a Demo
           </button>
