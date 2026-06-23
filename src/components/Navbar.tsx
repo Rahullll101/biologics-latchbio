@@ -23,6 +23,7 @@ import {
   Award,
   BookOpen,
   FileText,
+  Cloud,
 } from 'lucide-react';
 
 export default function Navbar() {
@@ -366,28 +367,64 @@ export default function Navbar() {
       discoverLabel: 'Explore Services',
       items: [
         {
-          title: 'Informatics & Data Analytics',
-          desc: 'Next-generation computational engines, AI design, and custom workflow pipelines.',
-          icon: Cpu,
-          href: '/services#services-1'
+          title: 'Bioinformatics',
+          desc: 'Advanced genomic and multi-omics data analysis pipelines.',
+          icon: Dna,
+          href: '/services'
         },
         {
-          title: 'Drug Development Services',
-          desc: 'Strategic translation, safety toxicology, CMC formulation, and clinical pharmacology.',
-          icon: Compass,
-          href: '/services#services-2'
-        },
-        {
-          title: 'Regulatory Affairs Strategy',
-          desc: 'Global agency meeting support and eCTD submission packages compilation.',
+          title: 'Validation and Compliance Support',
+          desc: 'Ensuring systems meet strict FDA/EMA regulatory standards.',
           icon: ShieldCheck,
-          href: '/services#services-2'
+          href: '/services'
         },
         {
-          title: 'Due Diligence & Evaluation',
-          desc: 'Independent asset risk profiling, scorecards, and start-up valuations.',
-          icon: Award,
-          href: '/services#services-2'
+          title: 'Data Science and Consulting',
+          desc: 'Strategic guidance for deploying custom ML and AI models.',
+          icon: Database,
+          href: '/services'
+        },
+        {
+          title: 'Digital Transformation Consulting',
+          desc: 'Modernize R&D processes with next-gen cloud solutions.',
+          icon: Cpu,
+          href: '/services'
+        },
+        {
+          title: 'Clinical Trials',
+          desc: 'Optimize clinical trial design, execution, and monitoring.',
+          icon: Activity,
+          href: '/services'
+        },
+        {
+          title: 'Clinical Genomics',
+          desc: 'Integrate genomic insights into clinical decision making.',
+          icon: Microscope,
+          href: '/services'
+        },
+        {
+          title: 'Scientific Application Managed Services',
+          desc: 'Reliable hosting, deployment, support, and maintenance.',
+          icon: Layers,
+          href: '/services'
+        },
+        {
+          title: 'Strategic Scientific Consulting Services',
+          desc: 'Expert advisory for complex biopharma scientific challenges.',
+          icon: Compass,
+          href: '/services'
+        },
+        {
+          title: 'Scientific Cloud Computing Services',
+          desc: 'High-performance computing infrastructure for life sciences.',
+          icon: Cloud,
+          href: '/services'
+        },
+        {
+          title: 'Practical AI Blueprints',
+          desc: 'Ready-to-use AI architectures and reproducible workflows.',
+          icon: Brain,
+          href: '/services'
         }
       ],
       featured: {
@@ -602,13 +639,6 @@ export default function Navbar() {
               </Link>
             </div>
           </nav>
-        </div>
-
-        {/* Right Side Action Links */}
-        <div className="hidden lg:flex items-center gap-6 pr-4">
-          <a href="https://www.genesysquantis.com/templates/login.html" className="px-5 py-2 rounded-xl bg-[#0f269a] hover:bg-[#0a1a72] text-white text-sm font-semibold shadow-sm transition-all transform hover:-translate-y-0.5">
-            Sign Up
-          </a>
         </div>
 
 
